@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: ec676c6330a5bc34c8675136106e3520
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 100
+  forceTextureCase: -1
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - VT323
+  fallbackFontReferences: []
+  customCharacters: "a, A\u0105bBcC\u0107dDeE\u0119fFgGhHiIjJkKlL\u0142\u0141mMnNoO\xF3pPrRsS\u015B\u015AtTuUvVwWxXyYzZ\u017A\u0179\u017C()."
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

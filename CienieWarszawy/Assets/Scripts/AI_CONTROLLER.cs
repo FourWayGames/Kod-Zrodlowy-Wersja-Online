@@ -42,11 +42,30 @@ private AudioSource GunSounds;
     }
 
     void Update()
-    {
-             hitColliders = Physics2D.OverlapCircleAll(gameObject.transform.position, 1.13f); 
+    {       
+      switch(gameObject.name){
+        case "GER_NORMALSOL":
+   hitColliders = Physics2D.OverlapCircleAll(gameObject.transform.position, 1.13f); 
+  break;
+          case "PISTOLSOL_POL":
+          hitColliders = Physics2D.OverlapCircleAll(gameObject.transform.position, 1.13f); 
+          break;
+          case "SZTURMSOL_POL":
+          hitColliders = Physics2D.OverlapCircleAll(gameObject.transform.position, 1.5f); 
+          break;
+          case "SNIPERSOL_POL":
+          hitColliders = Physics2D.OverlapCircleAll(gameObject.transform.position, 2f); 
+          break;
+          case "CZOLG_ENT_POL":
+          hitColliders = Physics2D.OverlapCircleAll(gameObject.transform.position, 1.35f); 
+          break;
+      }
              
-
+             
+          if(gameObject.name != "MINA_ENT_POL"){
            Detect();
+          }
+          
 if(Vector3.Distance(transform.position, target.position) <= 0.1f){
               GetNextWaypoint();
           }
@@ -80,9 +99,29 @@ if(Vector3.Distance(transform.position, target.position) <= 0.1f){
      OBJ_HP.SetActive(false);
  } */ 
 
-private void OnDrawGizmos() {
-     Gizmos.color = Color.red;
-     Gizmos.DrawWireSphere(gameObject.transform.position, 1.13f);
+private void OnDrawGizmos() { //do testów zasięgu
+ Gizmos.color = Color.red;
+  switch(gameObject.name){
+    case "GER_NORMALSOL":
+   Gizmos.DrawWireSphere(gameObject.transform.position, 1.13f);
+  break;
+  case "PISTOLSOL_POL":
+   Gizmos.DrawWireSphere(gameObject.transform.position, 1.13f);
+  break;
+  case "SZTURMSOL_POL":
+   Gizmos.DrawWireSphere(gameObject.transform.position, 1.5f);
+  break;
+  case "SNIPERSOL_POL":
+   Gizmos.DrawWireSphere(gameObject.transform.position, 2f);
+  break;
+  case "CZOLG_ENT_POL":
+   Gizmos.DrawWireSphere(gameObject.transform.position, 1.35f);
+  break;
+  
+
+  }
+     
+    
  }
 
 void Detect(){

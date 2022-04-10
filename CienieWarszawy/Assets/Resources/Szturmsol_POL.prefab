@@ -235,7 +235,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &1654158692902474858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,6 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 110
+  FullHealth: 0
   HP_BAR: {fileID: 6946747551310975802}
   GO: {fileID: 0}
 --- !u!1 &5879454238952405450
@@ -381,7 +382,7 @@ GameObject:
   - component: {fileID: 3943331247776336398}
   - component: {fileID: 7248342708545342263}
   m_Layer: 3
-  m_Name: POL_NORMALSOL
+  m_Name: SZTURMSOL_POL
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -458,6 +459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 100
+  FullHealth: 0
   HP_BAR: {fileID: 6946747551310975802}
   GO: {fileID: 0}
 --- !u!50 &3943331247776336398
@@ -817,9 +819,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 8428091736547298897}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 110
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 110
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

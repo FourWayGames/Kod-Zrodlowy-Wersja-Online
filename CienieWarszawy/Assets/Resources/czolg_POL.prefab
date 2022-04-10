@@ -240,9 +240,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1671285596700594924}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 150
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 150
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -368,7 +368,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &8445306154565617879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,6 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 150
+  FullHealth: 0
   HP_BAR: {fileID: 261437156074639239}
   GO: {fileID: 0}
 --- !u!1 &3629626250881033591
@@ -514,7 +515,7 @@ GameObject:
   - component: {fileID: 6160510059734783667}
   - component: {fileID: 527001320892995466}
   m_Layer: 3
-  m_Name: POL_NORMALSOL
+  m_Name: CZOLG_ENT_POL
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -592,6 +593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 100
+  FullHealth: 0
   HP_BAR: {fileID: 261437156074639239}
   GO: {fileID: 0}
 --- !u!50 &6160510059734783667

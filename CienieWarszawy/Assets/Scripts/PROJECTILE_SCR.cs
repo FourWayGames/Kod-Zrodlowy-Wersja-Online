@@ -9,22 +9,34 @@ public class PROJECTILE_SCR : MonoBehaviour
     {
         
         switch(gameObject.transform.parent.name){
-            case "POL_NORMALSOL":
+            case "PISTOLSOL_POL":
             var OurGuy = gameObject.transform.parent;
             if(OurGuy.GetComponent<AI_CONTROLLER>().AtkBoost){
-                DAMAGE += 20;
+                DAMAGE += 5;
             }
-            DAMAGE += 20;
+            DAMAGE += 5;
             //Physics2D.IgnoreLayerCollision(3, 8, true); 
             break;
 
             case "GER_NORMALSOL":
             //Physics2D.IgnoreLayerCollision(8, 7, true);
-            DAMAGE = 10;
+            DAMAGE = 3;
             break;
             case "Dzialko":
             gameObject.layer = LayerMask.NameToLayer("BaseProjectile");
             DAMAGE = 5; 
+            break;
+            case "CZOLG_ENT_POL":
+            gameObject.layer = LayerMask.NameToLayer("BaseProjectile");
+            DAMAGE = 75; 
+            break;
+            case "SNIPERSOL_POL":
+            gameObject.layer = LayerMask.NameToLayer("BaseProjectile");
+            DAMAGE = 40; 
+            break;
+            case "SZTURMSOL_POL":
+            gameObject.layer = LayerMask.NameToLayer("BaseProjectile");
+            DAMAGE = 10; 
             break;
         }
     }

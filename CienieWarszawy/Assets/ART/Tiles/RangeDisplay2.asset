@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: jednostki_Gracza_szturm
+  m_Name: RangeDisplay2
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -4767977588525557922, guid: 701b75c6944236c408c9bbfaaa6e3100, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5529412}
+  m_Sprite: {fileID: -2413806693520163455, guid: 82c7405f8f607534f8d4959d755a3f91, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
     e01: 0

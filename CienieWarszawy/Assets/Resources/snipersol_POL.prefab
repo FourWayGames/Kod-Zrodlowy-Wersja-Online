@@ -83,9 +83,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 568343943162589381}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 75
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 75
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -370,7 +370,7 @@ GameObject:
   - component: {fileID: 5020449160060859546}
   - component: {fileID: 1694189378909156771}
   m_Layer: 3
-  m_Name: POL_NORMALSOL
+  m_Name: SNIPERSOL_POL
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -447,6 +447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 100
+  FullHealth: 0
   HP_BAR: {fileID: 1401322202989161902}
   GO: {fileID: 0}
 --- !u!50 &5020449160060859546
@@ -708,6 +709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 75
+  FullHealth: 0
   HP_BAR: {fileID: 1401322202989161902}
   GO: {fileID: 0}
 --- !u!1 &8744495377319370396

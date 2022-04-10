@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class HEALTH_SCRIPT : MonoBehaviour
 {
-    public int Health;
+    public int Health, FullHealth;
     public Slider HP_BAR;
     public GameObject GO;
     void Start()
     {
+        FullHealth = Health;
+     
         if(GO == null){
             return;
         }
@@ -17,8 +19,6 @@ public class HEALTH_SCRIPT : MonoBehaviour
             Health = 200;
         }if(gameObject.name == "GER_NORMALSOL"){
         Health += 50; 
-        }if(gameObject.name == "POL_NORMALSOL"){
-        Health += 60; 
         }
         if(gameObject.tag != "MB" && gameObject.transform.parent.GetComponent<AI_CONTROLLER>().HPBoost){
             Health += 55;

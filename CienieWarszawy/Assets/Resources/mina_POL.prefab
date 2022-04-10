@@ -448,7 +448,7 @@ GameObject:
   - component: {fileID: 1118417787343196488}
   - component: {fileID: 6749669505915064433}
   m_Layer: 3
-  m_Name: POL_NORMALSOL
+  m_Name: MINA_ENT_POL
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -525,6 +525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 100
+  FullHealth: 0
   HP_BAR: {fileID: 6438779650755610748}
   GO: {fileID: 0}
 --- !u!50 &1118417787343196488
@@ -730,6 +731,7 @@ GameObject:
   - component: {fileID: 3443051929732271916}
   - component: {fileID: 251627950746483362}
   - component: {fileID: 7792386357238504468}
+  - component: {fileID: -4595143114801083187}
   m_Layer: 3
   m_Name: mina_POL
   m_TagString: Player
@@ -801,7 +803,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &3443051929732271916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -858,5 +860,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 100
+  FullHealth: 0
   HP_BAR: {fileID: 6438779650755610748}
   GO: {fileID: 0}
+--- !u!114 &-4595143114801083187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8953833068891432271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56fc1a327c3b5a24cba7790df5e82a63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

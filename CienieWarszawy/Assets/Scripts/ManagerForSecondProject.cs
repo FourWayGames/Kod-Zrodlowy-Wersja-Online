@@ -119,9 +119,9 @@ public class ManagerForSecondProject : MonoBehaviour
             AI_CONTROLLER.Liczba_WP2 = 1;
             enemyCounter = 0;
             DIALOG_MANAGER.NR_DIALOGU = 111;
-            RZ = 45;
-            AMM = 45;
-            MECH = 0;
+            RZ = 50;
+            AMM = 80;
+            MECH = 150;
             EnemySpeed = 1.2f;
             SpawnTime = 4.4f;
         }else if(scene.name == "Level_7"){
@@ -564,22 +564,56 @@ var e = Instantiate(Resources.Load("normalsol_GER"), spawner[0].transform.positi
     
 
     void Selecter(){
-              
- Vector3Int mousePos = GetMousePosition();
+Vector3Int mousePos = GetMousePosition();
     var Tile_type = World.GetTile(mousePos);
         if (!mousePos.Equals(previousMousePos)) {
             Hover.SetTile(previousMousePos, null);
             HoverRange.SetTile(previousMousePos, null); 
             if((ShopMenu.NormalSoldier && RZ >= 15) && AMM >= 15){
                           Hover.SetTile(mousePos, TileSet[2]);
+                          TileSet[3].transform = Matrix4x4.Scale(new Vector3(1f,1f,0));
+                          HoverRange.SetTile(mousePos, TileSet[3]);
+            }
+            if((ShopMenu.SztormSoldier && RZ >= 30) && AMM >= 30){
+                          Hover.SetTile(mousePos, TileSet[5]);
+                          TileSet[3].transform = Matrix4x4.Scale(new Vector3(1.35f,1.35f,0));
+                          HoverRange.SetTile(mousePos, TileSet[3]);
+            }
+             if((ShopMenu.SnajperSoldier && RZ >= 10) && AMM >= 40){
+                          Hover.SetTile(mousePos, TileSet[4]);
+                           TileSet[3].transform = Matrix4x4.Scale(new Vector3(1.8f,1.8f,0));
+                          HoverRange.SetTile(mousePos, TileSet[3]);
+            }
+            if((ShopMenu.MinaEntity && MECH >= 50)){
+                          Hover.SetTile(mousePos, TileSet[6]);
+                          //HoverRange.SetTile(mousePos, TileSet[3]);
+            }
+            if((ShopMenu.CzolgEntity && MECH >= 75) && AMM >= 30){
+                          Hover.SetTile(mousePos, TileSet[7]);
+                           TileSet[3].transform = Matrix4x4.Scale(new Vector3(1.2f,1.2f,0));
                           HoverRange.SetTile(mousePos, TileSet[3]);
             }
             previousMousePos = mousePos;
         }
            
         if (Input.GetMouseButtonDown(0) && DP == false) {
+             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+             if(Tile_type.name != "Sprite-0003" && (Tile_type.name == "droga2.2" || Tile_type.name == "droga3.2" || Tile_type.name == "droga4.2" || Tile_type.name == "path")){
+                 if(hit.collider == null){
+if(ShopMenu.MinaEntity && MECH >= 50){
+                  
+                MECH -= 50;
+                //DIALOG_MANAGER.PJ++;
+                Vector3 d = new Vector3(mousePos.x, mousePos.y, 0.6f);
+                var spawnPoint = grid.GetCellCenterWorld(grid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition)));
+           var i = Instantiate(Resources.Load("mina_POL"), spawnPoint, transform.rotation);
+           i.name = "minaEnt_POL";
+            }
+                 }
+               
+            }
             if(Tile_type.name == "Sprite-0003" || Tile_type.name == "Ulepszacze_0" || Tile_type.name == "Ulepszacze_1" || Tile_type.name == "Ulepszacze_2"){
- RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+
             if(hit.collider == null){
             if(ShopMenu.NormalSoldier && (RZ >= 15 && AMM >= 15)){
                 RZ -= 15;
@@ -588,9 +622,39 @@ var e = Instantiate(Resources.Load("normalsol_GER"), spawner[0].transform.positi
                 Vector3 d = new Vector3(mousePos.x, mousePos.y, 0.6f);
                 var spawnPoint = grid.GetCellCenterWorld(grid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition)));
            var i = Instantiate(Resources.Load("normalsol_POL"), spawnPoint, transform.rotation);
-           i.name = "normalsol_POL"; //usuwam (Clone) bo przeszkadza w innym skrypcie
+           i.name = "pistolsol_POL"; //usuwam (Clone) bo przeszkadza w innym skrypcie
             }
+             if(ShopMenu.SztormSoldier && (RZ >= 30 && AMM >= 30)){
+                RZ -= 30;
+                AMM -= 30;
+                //DIALOG_MANAGER.PJ++;
+                Vector3 d = new Vector3(mousePos.x, mousePos.y, 0.6f);
+                var spawnPoint = grid.GetCellCenterWorld(grid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition)));
+           var i = Instantiate(Resources.Load("Szturmsol_POL"), spawnPoint, transform.rotation);
+           i.name = "sztormsol_POL";
             }
+            if(ShopMenu.SnajperSoldier && (RZ >= 10 && AMM >= 40)){
+                RZ -= 10;
+                AMM -= 40;
+                //DIALOG_MANAGER.PJ++;
+                Vector3 d = new Vector3(mousePos.x, mousePos.y, 0.6f);
+                var spawnPoint = grid.GetCellCenterWorld(grid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition)));
+           var i = Instantiate(Resources.Load("snipersol_POL"), spawnPoint, transform.rotation);
+           i.name = "snipersol_POL";
+            }
+            
+            if(ShopMenu.CzolgEntity && (MECH >= 50 && AMM >= 30)){
+                MECH -= 75;
+                AMM -= 30;
+                //DIALOG_MANAGER.PJ++;
+                Vector3 d = new Vector3(mousePos.x, mousePos.y, 0.6f);
+                var spawnPoint = grid.GetCellCenterWorld(grid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition)));
+           var i = Instantiate(Resources.Load("czolg_POL"), spawnPoint, transform.rotation);
+           i.name = "czolgEnt_POL";
+            }
+            
+            }
+           
             }
            
             
@@ -600,12 +664,36 @@ var e = Instantiate(Resources.Load("normalsol_GER"), spawner[0].transform.positi
         
         if (Input.GetMouseButtonDown(1)) {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            if((hit.collider != null) && (hit.collider.gameObject.GetComponent<HEALTH_SCRIPT>().Health == 100)){
-switch(hit.collider.tag){
-               case "Player":
+            if((hit.collider != null) && (hit.collider.gameObject.GetComponent<HEALTH_SCRIPT>().Health == hit.collider.gameObject.GetComponent<HEALTH_SCRIPT>().FullHealth)){
+                Debug.Log(hit.collider.name);
+switch(hit.collider.name){
+               case "pistolsol_POL":
                DIALOG_MANAGER.PJ--;
      RZ += 15;
      AMM += 15;
+    Destroy(hit.transform.gameObject);
+    break;
+     case "sztormsol_POL":
+              // DIALOG_MANAGER.PJ--;
+     RZ += 30;
+     AMM += 30;
+    Destroy(hit.transform.gameObject);
+    break;
+     case "snipersol_POL":
+             //  DIALOG_MANAGER.PJ--;
+     RZ += 10;
+     AMM += 40;
+    Destroy(hit.transform.gameObject);
+    break;
+     case "minaEnt_POL":
+              // DIALOG_MANAGER.PJ--;
+     MECH += 50;
+    Destroy(hit.transform.gameObject);
+    break;
+     case "czolgEnt_POL":
+              // DIALOG_MANAGER.PJ--;
+     MECH += 75;
+     AMM += 30;
     Destroy(hit.transform.gameObject);
     break;
             }
@@ -621,8 +709,13 @@ switch(hit.collider.tag){
         }
 
           if(Tile_type != null){
-if(Tile_type.name != "Sprite-0003"){
+if(Tile_type.name != "Sprite-0003" && !ShopMenu.MinaEntity){ //Tym stawiam jednostki na trawie wyłączając stawianie na ulicy
             Hover.SetTile(previousMousePos, null); 
+            HoverRange.SetTile(previousMousePos, null); 
+            Hover.SetTile(mousePos, TileSet[1]);
+            previousMousePos = mousePos;  
+         }if((Tile_type.name == "Sprite-0003" && Tile_type.name != "GrassBlocker") && ShopMenu.MinaEntity){ //Tym stawiam miny na ulice, wyłączając stawianie na trawie + GrassBlocker bo miny mogły 
+            Hover.SetTile(previousMousePos, null);                                                          //Pojawiać się na drzewach przez ułamek sekundy
             HoverRange.SetTile(previousMousePos, null); 
             Hover.SetTile(mousePos, TileSet[1]);
             previousMousePos = mousePos;  

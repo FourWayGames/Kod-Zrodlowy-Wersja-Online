@@ -547,7 +547,7 @@ MonoBehaviour:
   MoneyBoost: 0
   HPBoost: 0
   Speed: 0
-  cooldown: 2
+  cooldown: 0.5
 --- !u!50 &180362418910344565
 Rigidbody2D:
   serializedVersion: 4

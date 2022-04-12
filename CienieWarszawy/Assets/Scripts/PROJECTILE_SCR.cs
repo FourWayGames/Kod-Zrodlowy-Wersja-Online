@@ -20,7 +20,7 @@ public class PROJECTILE_SCR : MonoBehaviour
 
             case "GER_NORMALSOL":
             //Physics2D.IgnoreLayerCollision(8, 7, true);
-            DAMAGE = 3;
+            DAMAGE = 4;
             break;
             case "Dzialko":
             gameObject.layer = LayerMask.NameToLayer("BaseProjectile");
@@ -44,7 +44,7 @@ public class PROJECTILE_SCR : MonoBehaviour
        
         switch(col.gameObject.tag){
             case "MB":
-  col.gameObject.GetComponent<HEALTH_SCRIPT>().Health -= (int)(30.0 / 100.0 * DAMAGE); 
+  col.gameObject.GetComponent<HEALTH_SCRIPT>().Health -= 10/*(int)(30.0 / 100.0 * DAMAGE)*/; 
             Destroy(gameObject);
             
             break;

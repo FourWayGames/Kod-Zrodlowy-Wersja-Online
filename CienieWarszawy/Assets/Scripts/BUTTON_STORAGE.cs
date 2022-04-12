@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class BUTTON_STORAGE : MonoBehaviour
 {
-    public GameObject DZW, GRAJ, AUTO, MainMenu, HST, SidePanelPH, SidePanelWP, SidePanelWM, DefaultInfHis, ACT, MDT, HHT, HLRT, SplashScreen, OAT, OGT, BGWT;
+    public GameObject DZW, GRAJ, AUTO, MainMenu, HST, SidePanelPH, SidePanelWP, SidePanelWM, DefaultInfHis, ACT, MDT, HHT, HLRT, SplashScreen, OAT, OGT, BGWT, HVT, GPT, PPT, WPWT, PKT, BPT, ObGT, PWT;
     public AudioSource D, sdt;
     public static bool PopupShowed;
+    private bool SwitchTab;
+    public string PressedButton;
     public Button DzwB, GrajB, AutoB, Dzw2B, Graj2B, Auto2B, HisB, His2B, PosH, WaPoj, WaMi, AC, MD, HH, HLR, OA, OG, BGW, HV, GP, PP, WPW, PK, BP, ObG, PW;
     void Start()
     {
@@ -33,6 +35,14 @@ public class BUTTON_STORAGE : MonoBehaviour
         OA.onClick.AddListener(oa);
         OG.onClick.AddListener(og);
         BGW.onClick.AddListener(bgw);
+        HV.onClick.AddListener(hvt);
+        GP.onClick.AddListener(gp);
+        PP.onClick.AddListener(pp);
+        WPW.onClick.AddListener(wpwt);
+        PK.onClick.AddListener(pkt);
+        BP.onClick.AddListener(bp);
+        ObG.onClick.AddListener(obg);
+        PW.onClick.AddListener(pw);
     }
 
     void Update()
@@ -40,16 +50,48 @@ public class BUTTON_STORAGE : MonoBehaviour
         if(SplashScreen == null && !sdt.isPlaying){
             sdt.Play();
         }
-          if( GRAJ.activeSelf || DZW.activeSelf || AUTO.activeSelf || HST.activeSelf ){
+        if(Input.GetKey(KeyCode.Escape)){
+            MainMenu.SetActive(true);
+        }
+          if((GRAJ.activeSelf || DZW.activeSelf || AUTO.activeSelf || HST.activeSelf) && !SwitchTab){
               MainMenu.SetActive(false);
           }else{
               MainMenu.SetActive(true);
+          }
+
+          switch(PressedButton){
+              case null:
+               SidePanelPH.SetActive(false);
+               SidePanelWM.SetActive(false);
+               SidePanelWP.SetActive(false);
+               DefaultInfHis.SetActive(true);     
+              break;
+               case "PosHis":
+               SidePanelPH.SetActive(true);
+               SidePanelWM.SetActive(false);
+               SidePanelWP.SetActive(false);
+               DefaultInfHis.SetActive(false);       
+               break;
+               case "WazPoj":
+               SidePanelWP.SetActive(true);
+               SidePanelWM.SetActive(false);
+               SidePanelPH.SetActive(false); 
+               DefaultInfHis.SetActive(false);        
+               break;
+               case "WazMiej":
+               SidePanelWM.SetActive(true);
+               SidePanelPH.SetActive(false);
+               SidePanelWP.SetActive(false);    
+               DefaultInfHis.SetActive(false);     
+               break;
+
           }
         
     }
 
     void dzwk(){
         D.Play();
+        
          if(!DZW.activeSelf){
             DZW.SetActive(true);
             if(GRAJ.activeSelf){
@@ -118,52 +160,35 @@ public class BUTTON_STORAGE : MonoBehaviour
     }
     void PH(){
         D.Play();
-        if(SidePanelWP.activeSelf){
-               SidePanelWP.SetActive(false);
-           }
-           if(SidePanelWM.activeSelf){
-               SidePanelWM.SetActive(false);
-           }
-           
-        if(DefaultInfHis.activeSelf){
-            SidePanelPH.SetActive(true);
-            DefaultInfHis.SetActive(false);
+        if(PressedButton != "PosHis"){
+            PressedButton = "PosHis";
         }else{
-            SidePanelPH.SetActive(false);
-           DefaultInfHis.SetActive(true); 
+            PressedButton = null;
         }
+        
+            
+
     }
     void WP(){
         D.Play();
-         if(SidePanelPH.activeSelf){
-               SidePanelPH.SetActive(false);
-           }
-           if(SidePanelWM.activeSelf){
-               SidePanelWM.SetActive(false);
-           }
-        if(DefaultInfHis.activeSelf){
-            SidePanelWP.SetActive(true);
-            DefaultInfHis.SetActive(false);
+        if(PressedButton != "WazPoj"){
+            PressedButton = "WazPoj";
         }else{
-            SidePanelWP.SetActive(false);
-           DefaultInfHis.SetActive(true); 
+            PressedButton = null;
         }
+        
+        
     }
     void WM(){
-         if(SidePanelPH.activeSelf){
-               SidePanelPH.SetActive(false);
-           }
-           if(SidePanelWP.activeSelf){
-               SidePanelWP.SetActive(false);
-           }
         D.Play();
-        if(DefaultInfHis.activeSelf){
-            SidePanelWM.SetActive(true);
-            DefaultInfHis.SetActive(false);
+        if(PressedButton != "WazMiej"){
+            PressedButton = "WazMiej";
         }else{
-            SidePanelWM.SetActive(false);
-           DefaultInfHis.SetActive(true); 
+            PressedButton = null;
         }
+    
+       
+      
     }
     void ac(){
          D.Play();
@@ -277,5 +302,237 @@ public class BUTTON_STORAGE : MonoBehaviour
              BGWT.SetActive(false);
          }
         
+    }
+    void hvt(){
+         D.Play();
+          if(ObGT.activeSelf){
+             ObGT.SetActive(false);
+         }
+         if(GPT.activeSelf){
+             GPT.SetActive(false);
+         }
+         if(WPWT.activeSelf){
+             WPWT.SetActive(false);
+         }
+         if(PWT.activeSelf){
+             PWT.SetActive(false);
+         }
+         if(BPT.activeSelf){
+             BPT.SetActive(false);
+         }
+         if(PKT.activeSelf){
+             PKT.SetActive(false);
+         }
+         if(PPT.activeSelf){
+             PPT.SetActive(false);
+         }
+         if(!HVT.activeSelf){
+             HVT.SetActive(true);
+         }else{
+             HVT.SetActive(false);
+         }
+    }
+    void gp(){
+         D.Play();
+          if(ObGT.activeSelf){
+             ObGT.SetActive(false);
+         }
+         if(HVT.activeSelf){
+             HVT.SetActive(false);
+         }
+         if(WPWT.activeSelf){
+             WPWT.SetActive(false);
+         }
+         if(PWT.activeSelf){
+             PWT.SetActive(false);
+         }
+         if(BPT.activeSelf){
+             BPT.SetActive(false);
+         }
+         if(PKT.activeSelf){
+             PKT.SetActive(false);
+         }
+         if(PPT.activeSelf){
+             PPT.SetActive(false);
+         }
+         if(!GPT.activeSelf){
+             GPT.SetActive(true);
+         }else{
+             GPT.SetActive(false);
+         }
+    }
+    void pp(){
+        D.Play();
+         if(ObGT.activeSelf){
+             ObGT.SetActive(false);
+         }
+         if(GPT.activeSelf){
+             GPT.SetActive(false);
+         }
+         if(WPWT.activeSelf){
+             WPWT.SetActive(false);
+         }
+         if(PWT.activeSelf){
+             PWT.SetActive(false);
+         }
+         if(BPT.activeSelf){
+             BPT.SetActive(false);
+         }
+         if(PKT.activeSelf){
+             PKT.SetActive(false);
+         }
+         if(HVT.activeSelf){
+             HVT.SetActive(false);
+         }
+         if(!PPT.activeSelf){
+             PPT.SetActive(true);
+         }else{
+             PPT.SetActive(false);
+         }
+    }
+    void wpwt(){
+        D.Play();
+         if(ObGT.activeSelf){
+             ObGT.SetActive(false);
+         }
+         if(GPT.activeSelf){
+             GPT.SetActive(false);
+         }
+         if(HVT.activeSelf){
+             HVT.SetActive(false);
+         }
+         if(PWT.activeSelf){
+             PWT.SetActive(false);
+         }
+         if(BPT.activeSelf){
+             BPT.SetActive(false);
+         }
+         if(PKT.activeSelf){
+             PKT.SetActive(false);
+         }
+         if(PPT.activeSelf){
+             PPT.SetActive(false);
+         }
+         if(!WPWT.activeSelf){
+             WPWT.SetActive(true);
+         }else{
+             WPWT.SetActive(false);
+         }
+    }
+    void pkt(){
+        D.Play();
+         if(ObGT.activeSelf){
+             ObGT.SetActive(false);
+         }
+         if(GPT.activeSelf){
+             GPT.SetActive(false);
+         }
+         if(WPWT.activeSelf){
+             WPWT.SetActive(false);
+         }
+         if(PWT.activeSelf){
+             PWT.SetActive(false);
+         }
+         if(BPT.activeSelf){
+             BPT.SetActive(false);
+         }
+         if(HVT.activeSelf){
+             HVT.SetActive(false);
+         }
+         if(PPT.activeSelf){
+             PPT.SetActive(false);
+         }
+         if(!PKT.activeSelf){
+             PKT.SetActive(true);
+         }else{
+             PKT.SetActive(false);
+         }
+    }
+    void bp(){
+        D.Play();
+         if(ObGT.activeSelf){
+             ObGT.SetActive(false);
+         }
+         if(GPT.activeSelf){
+             GPT.SetActive(false);
+         }
+         if(WPWT.activeSelf){
+             WPWT.SetActive(false);
+         }
+         if(PWT.activeSelf){
+             PWT.SetActive(false);
+         }
+         if(HVT.activeSelf){
+             HVT.SetActive(false);
+         }
+         if(PKT.activeSelf){
+             PKT.SetActive(false);
+         }
+         if(PPT.activeSelf){
+             PPT.SetActive(false);
+         }
+         if(!BPT.activeSelf){
+             BPT.SetActive(true);
+         }else{
+             BPT.SetActive(false);
+         }
+    }
+    void obg(){
+        D.Play();
+         if(HVT.activeSelf){
+             HVT.SetActive(false);
+         }
+         if(GPT.activeSelf){
+             GPT.SetActive(false);
+         }
+         if(WPWT.activeSelf){
+             WPWT.SetActive(false);
+         }
+         if(PWT.activeSelf){
+             PWT.SetActive(false);
+         }
+         if(BPT.activeSelf){
+             BPT.SetActive(false);
+         }
+         if(PKT.activeSelf){
+             PKT.SetActive(false);
+         }
+         if(PPT.activeSelf){
+             PPT.SetActive(false);
+         }
+         if(!ObGT.activeSelf){
+             ObGT.SetActive(true);
+         }else{
+             ObGT.SetActive(false);
+         }
+    }
+    void pw(){
+       D.Play();
+        if(ObGT.activeSelf){
+             ObGT.SetActive(false);
+         }
+         if(GPT.activeSelf){
+             GPT.SetActive(false);
+         }
+         if(WPWT.activeSelf){
+             WPWT.SetActive(false);
+         }
+         if(HVT.activeSelf){
+             HVT.SetActive(false);
+         }
+         if(BPT.activeSelf){
+             BPT.SetActive(false);
+         }
+         if(PKT.activeSelf){
+             PKT.SetActive(false);
+         }
+         if(PPT.activeSelf){
+             PPT.SetActive(false);
+         }
+         if(!PWT.activeSelf){
+             PWT.SetActive(true);
+         }else{
+             PWT.SetActive(false);
+         }
     }
 }

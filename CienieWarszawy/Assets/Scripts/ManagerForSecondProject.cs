@@ -37,7 +37,7 @@ public class ManagerForSecondProject : MonoBehaviour
 
     void Start()
     {
-        Version.text = "Beta 0.9.2";
+        Version.text = "Beta 0.9.3";
         SCORE = 200;
         SoundTrack = GetComponent<AudioSource>();
         Enemy_Defeated = 0;
@@ -451,48 +451,65 @@ if(DIALOG_MANAGER.NR_DIALOGU == 29 || DIALOG_MANAGER.NR_DIALOGU == 31 ){
 
                    while(WavesComplete <= WavesToComplete){
                        if(spawner.Length == 3){
-                               var Random_Spawner = Random.Range(1,4);
+                               var Random_Spawner = Random.Range(0,5);
                            
                            var bruh = spawner[Random.Range(0,3)];
                           
-                           if(Random_Spawner == 1){
-                                   var d = Instantiate(Resources.Load("Tank_GER"), bruh.transform.position, bruh.transform.rotation);
-           d.name = "Tank" + bruh.transform.name;
+                                if(Random_Spawner == 1){
+                                  var d = Instantiate(Resources.Load("normalsol_GER"), bruh.transform.position, bruh.transform.rotation);
+           d.name = bruh.transform.name;
                            }   
-                           if(Random_Spawner == 0){
-                      var d = Instantiate(Resources.Load("normalsol_GER"), bruh.transform.position, bruh.transform.rotation);
-           d.name =  bruh.transform.name;
+                           if(Random_Spawner == 2){
+    var d = Instantiate(Resources.Load("szturmlsol_GER"), bruh.transform.position, bruh.transform.rotation);
+           d.name = bruh.transform.name;
                            }
-                              
-                               /*
-var e = Instantiate(Resources.Load("normalsol_GER"), bruh.transform.position, bruh.transform.rotation);
-           e.name = bruh.transform.name;
-                               */
+                            if(Random_Spawner == 3){
+    var d = Instantiate(Resources.Load("snipersol_GER"), bruh.transform.position, bruh.transform.rotation);
+           d.name = bruh.transform.name;
+                           }
+                            if(Random_Spawner == 4){
+    var d = Instantiate(Resources.Load("Tank_GER"), bruh.transform.position, bruh.transform.rotation);
+           d.name = bruh.transform.name;
+                           }
                            
 
                        }
                        if(spawner.Length == 2){
                            var bruh = spawner[Random.Range(0,2)];
                            if(scene.name == "Level_2"){
-                                var Random_Spawner = Random.Range(1,3);
+                                var Random_Spawner = Random.Range(1,10);
                                 Debug.Log(Random_Spawner);
+                                if(Random_Spawner < 3){
+                                  var d = Instantiate(Resources.Load("normalsol_GER"), bruh.transform.position, bruh.transform.rotation);
+           d.name = bruh.transform.name;
+                           }   
+                           if(Random_Spawner > 3 && Random_Spawner < 6){
+    var d = Instantiate(Resources.Load("szturmlsol_GER"), bruh.transform.position, bruh.transform.rotation);
+           d.name = bruh.transform.name;
+                           }
+                            if(Random_Spawner > 6){
+    var d = Instantiate(Resources.Load("snipersol_GER"), bruh.transform.position, bruh.transform.rotation);
+           d.name = bruh.transform.name;
+                           }
+
+                           }
+                             
+                           if(scene.name != "Level_2") {
+                               var Random_Spawner = Random.Range(0,5);
                                 if(Random_Spawner == 1){
                                   var d = Instantiate(Resources.Load("normalsol_GER"), bruh.transform.position, bruh.transform.rotation);
            d.name = bruh.transform.name;
                            }   
                            if(Random_Spawner == 2){
-    var d = Instantiate(Resources.Load("normalsol_GER"), bruh.transform.position, bruh.transform.rotation);
+    var d = Instantiate(Resources.Load("szturmlsol_GER"), bruh.transform.position, bruh.transform.rotation);
            d.name = bruh.transform.name;
                            }
+                            if(Random_Spawner == 3){
+    var d = Instantiate(Resources.Load("snipersol_GER"), bruh.transform.position, bruh.transform.rotation);
+           d.name = bruh.transform.name;
                            }
-                           if(scene.name != "Level_2") {
-                               var Random_Spawner = Random.Range(1,3);
-                                if(Random_Spawner == 1){
-                                  var d = Instantiate(Resources.Load("Tank_GER"), bruh.transform.position, bruh.transform.rotation);
-           d.name = "Tank" + bruh.transform.name;
-                           }   
-                           if(Random_Spawner == 2){
-    var d = Instantiate(Resources.Load("normalsol_GER"), bruh.transform.position, bruh.transform.rotation);
+                            if(Random_Spawner == 4){
+    var d = Instantiate(Resources.Load("Tank_GER"), bruh.transform.position, bruh.transform.rotation);
            d.name = bruh.transform.name;
                            }
                            }
@@ -506,19 +523,39 @@ var e = Instantiate(Resources.Load("normalsol_GER"), bruh.transform.position, br
 
                        }
                          if(spawner.Length == 1){
-                             if(scene.name == "Tutorial_Level" || scene.name == "Level_1"){
+                             if(scene.name == "Tutorial_Level"){
                                         var d = Instantiate(Resources.Load("normalsol_GER"), spawner[0].transform.position, spawner[0].transform.rotation);
            d.name = spawner[0].transform.name;
                              }
+                             if(scene.name == "Level_1"){
+                                 var Random_Spawner = Random.Range(0,4);
+                                if(Random_Spawner > 2){
+                                   var d = Instantiate(Resources.Load("normalsol_GER"), spawner[0].transform.position, spawner[0].transform.rotation);
+           d.name = spawner[0].transform.name;
+                                }if(Random_Spawner < 2){
+                                       var d = Instantiate(Resources.Load("szturmlsol_GER"), spawner[0].transform.position, spawner[0].transform.rotation);
+           d.name = spawner[0].transform.name;
+                                }
+                             }
+                         
+                   
                              
                     if(scene.name == "Level_5"){
-                               var Random_Spawner = Random.Range(0,2);
+                         var Random_Spawner = Random.Range(0,5);
                                 if(Random_Spawner == 1){
-                               var d = Instantiate(Resources.Load("Tank_GER"), spawner[0].transform.position,  spawner[0].transform.rotation);
-           d.name = "Tank" + spawner[0].transform.name;
+                                  var d = Instantiate(Resources.Load("normalsol_GER"), spawner[0].transform.position, spawner[0].transform.rotation);
+           d.name = spawner[0].transform.name;
                            }   
                            if(Random_Spawner == 2){
-                          var d = Instantiate(Resources.Load("normalsol_GER"), spawner[0].transform.position, spawner[0].transform.rotation);
+    var d = Instantiate(Resources.Load("szturmlsol_GER"), spawner[0].transform.position, spawner[0].transform.rotation);
+           d.name = spawner[0].transform.name;
+                           }
+                            if(Random_Spawner == 3){
+    var d = Instantiate(Resources.Load("snipersol_GER"), spawner[0].transform.position, spawner[0].transform.rotation);
+           d.name = spawner[0].transform.name;
+                           }
+                            if(Random_Spawner == 4){
+    var d = Instantiate(Resources.Load("Tank_GER"), spawner[0].transform.position, spawner[0].transform.rotation);
            d.name = spawner[0].transform.name;
                            }
                            }

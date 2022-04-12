@@ -366,7 +366,8 @@ MonoBehaviour:
   AtkBoost: 0
   MoneyBoost: 0
   HPBoost: 0
-  cooldown: 1.5
+  Speed: 1.5
+  cooldown: 2
 --- !u!114 &8645704115170170932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,7 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44512008474170144a8a7ea9a15cf3a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 95
+  Health: 9
   FullHealth: 0
   HP_BAR: {fileID: 7651533145357195941}
   GO: {fileID: 0}
@@ -657,7 +658,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1524620298126389051}
   - component: {fileID: 9029791223376149361}
-  - component: {fileID: 137036171803027247}
   m_Layer: 7
   m_Name: Square
   m_TagString: Untagged
@@ -719,7 +719,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 3bf5f0d489f23e8449ba41513fd87f58, type: 3}
+  m_Sprite: {fileID: 5407388998237177524, guid: 8b548f5a781303544b854a23dc72af86, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -730,25 +730,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &137036171803027247
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8057224495661640781}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6995edc45b2c02c4fb8859e43a1e53ab, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9040396555885404413
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,9 +813,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 9132985632490948558}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 95
+  m_MaxValue: 9
   m_WholeNumbers: 0
-  m_Value: 95
+  m_Value: 9
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

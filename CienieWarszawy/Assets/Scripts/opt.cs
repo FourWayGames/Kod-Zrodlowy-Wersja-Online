@@ -14,28 +14,37 @@ public class opt : MonoBehaviour
     public static float GlobalSoundNumber = 100;
      void Start(){
 		//_Slider.onValueChanged.AddListener(delegate{Sound();});
-      _Slider.value = GlobalSoundNumber;
+      if(PlayerPrefs.HasKey("SoundNumber")){
+        _Slider.value = PlayerPrefs.GetFloat("SoundNumber");
+      }else{
+         FPS.fps_allow = false;
+       _Slider.value = 100;
+      }
+     
        switch(FPS.fps_allow){
           case true:
-          ShowFPS.isOn = true;
+          PlayerPrefs.SetInt("FPS", 1);
           break;
           case false:
-          ShowFPS.isOn = false;
+           PlayerPrefs.SetInt("FPS", 0);
           break;
        }
      }
 
      void Update(){
-        if(ShowFPS.isOn){
+        //if(Input.GetKey("z")){
+       //    PlayerPrefs.DeleteAll();
+       // }
+        if(PlayerPrefs.GetInt("FPS") == 1){
            FPS.fps_allow = true;
         }
-        if(!ShowFPS.isOn){
+        if(PlayerPrefs.GetInt("FPS") == 0){
            FPS.fps_allow = false;
         }
         var procent = _Slider.value / 1 * 100;
         TXT.text =  (int)procent + "%";
         AudioListener.volume = _Slider.value;
-        GlobalSoundNumber = _Slider.value;
+        PlayerPrefs.SetFloat("SoundNumber", _Slider.value);
          
         if(_Slider.value > 0.51f){
             IMG.sprite = IMG_Ad[2];

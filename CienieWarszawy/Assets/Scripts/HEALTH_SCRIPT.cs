@@ -28,7 +28,12 @@ public class HEALTH_SCRIPT : MonoBehaviour
     void Update()
     {
         
-        
+        if((ManagerForSecondProject.RZ < 10 && ManagerForSecondProject.AMM == 15 && ManagerForSecondProject.MECH < 50) && DIALOG_MANAGER.PJ == 0){
+           GO.SetActive(true);
+                ManagerForSecondProject.SCORE = 0;
+                ManagerForSecondProject.SoundTrack.Stop();
+              Time.timeScale = 0;
+        }
         HP_BAR.value = Health;
         if(Health < 0){
             switch(gameObject.tag){
@@ -58,13 +63,13 @@ public class HEALTH_SCRIPT : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D col){
-        if(col.transform.tag == "enemy"){
+        if(gameObject.name == "MB" && col.transform.tag == "enemy"){
           BaseDefender.EnemySpotted = true;
         }
           
     }
     void OnTriggerExit2D(Collider2D col1){
-        if(col1.transform.tag == "enemy"){
+        if(gameObject.name == "MB" && col1.transform.tag == "enemy"){
          BaseDefender.EnemySpotted = false;
         }
     }

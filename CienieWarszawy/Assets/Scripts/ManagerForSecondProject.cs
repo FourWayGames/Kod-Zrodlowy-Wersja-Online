@@ -26,7 +26,7 @@ public class ManagerForSecondProject : MonoBehaviour
         public static AudioSource SoundTrack;
         public AudioClip[] Soundtrack_List;
         public AudioSource Click;
-        public static float EnemySpeed, SpawnTime;
+        public static float SpawnTime;
         public TMP_Text Version;
         private Scene scene;
          private Vector3Int previousMousePos = new Vector3Int();
@@ -37,7 +37,7 @@ public class ManagerForSecondProject : MonoBehaviour
 
     void Start()
     {
-        Version.text = "Beta 0.9";
+        Version.text = "Beta 0.9.2";
         SCORE = 200;
         SoundTrack = GetComponent<AudioSource>();
         Enemy_Defeated = 0;
@@ -63,7 +63,7 @@ public class ManagerForSecondProject : MonoBehaviour
         RZ = 30;
         AMM = 30;
         MECH = 0;
-        EnemySpeed = 1f;
+       
         SpawnTime = 5f;
              //TODO: Zmienić to na Switch'e
         }else if(scene.name == "Level_1"){
@@ -73,7 +73,7 @@ public class ManagerForSecondProject : MonoBehaviour
             RZ = 45;
             AMM = 45;
             MECH = 0;
-            EnemySpeed = 1.2f;
+           
             SpawnTime = 5f;
         }else if(scene.name == "Level_2"){
             AI_CONTROLLER.Liczba_WP = 6;
@@ -83,7 +83,7 @@ public class ManagerForSecondProject : MonoBehaviour
             RZ = 45;
             AMM = 45;
             MECH = 0;
-            EnemySpeed = 1.2f;
+           
             SpawnTime = 5f;
         }else if(scene.name == "Level_3"){
             AI_CONTROLLER.Liczba_WP = 4;
@@ -93,7 +93,7 @@ public class ManagerForSecondProject : MonoBehaviour
             RZ = 45;
             AMM = 45;
             MECH = 0;
-            EnemySpeed = 1.2f;
+           
             SpawnTime = 5f;
         }else if(scene.name == "Level_4"){
             AI_CONTROLLER.Liczba_WP = 9;
@@ -103,7 +103,7 @@ public class ManagerForSecondProject : MonoBehaviour
             RZ = 45;
             AMM = 45;
             MECH = 0;
-            EnemySpeed = 1.2f;
+            
             SpawnTime = 4.7f;
         }else if(scene.name == "Level_5"){
             AI_CONTROLLER.Liczba_WP = 6;
@@ -112,7 +112,7 @@ public class ManagerForSecondProject : MonoBehaviour
             RZ = 45;
             AMM = 45;
             MECH = 0;
-            EnemySpeed = 1.2f;
+            
             SpawnTime = 4.5f;
         }else if(scene.name == "Level_6"){
             AI_CONTROLLER.Liczba_WP = 3;
@@ -122,7 +122,7 @@ public class ManagerForSecondProject : MonoBehaviour
             RZ = 50;
             AMM = 80;
             MECH = 150;
-            EnemySpeed = 1.2f;
+            
             SpawnTime = 4.4f;
         }else if(scene.name == "Level_7"){
             AI_CONTROLLER.Liczba_WP = 6;
@@ -132,7 +132,7 @@ public class ManagerForSecondProject : MonoBehaviour
             RZ = 45;
             AMM = 45;
             MECH = 0;
-            EnemySpeed = 1.2f;
+           
             SpawnTime = 4.3f;
         }else if(scene.name == "Level_8"){
             AI_CONTROLLER.Liczba_WP = 2;
@@ -143,7 +143,7 @@ public class ManagerForSecondProject : MonoBehaviour
             RZ = 120;
             AMM = 120;
             MECH = 120;
-            EnemySpeed = 1.2f;
+            
             SpawnTime = 3.9f;
         }
       
@@ -168,37 +168,54 @@ public class ManagerForSecondProject : MonoBehaviour
               case "Tutorial_Level":
               Levels_Manager.LVL1 = true;
               Levels_Manager.LVL0_ShowScore = true;
+              PlayerPrefs.SetInt("lvl1", 1);  //PlayerPrefs nie wspiera Booleana więc standardowo: 1-true 0-false
+              PlayerPrefs.SetInt("lvl0_scr", 1);
               break;
               case "Level_1":
               Levels_Manager.LVL2 = true;
                Levels_Manager.LVL1_ShowScore = true;
+                PlayerPrefs.SetInt("lvl2", 1);
+              PlayerPrefs.SetInt("lvl1_scr", 1);
               break;
               case "Level_2":
               Levels_Manager.LVL3 = true;
                Levels_Manager.LVL2_ShowScore = true;
+                PlayerPrefs.SetInt("lvl3", 1);
+              PlayerPrefs.SetInt("lvl2_scr", 1);
               break;
               case "Level_3":
               Levels_Manager.LVL4 = true;
                Levels_Manager.LVL3_ShowScore = true;
+                PlayerPrefs.SetInt("lvl4", 1);
+              PlayerPrefs.SetInt("lvl3_scr", 1);
               break;
               case "Level_4":
               Levels_Manager.LVL5 = true;
                Levels_Manager.LVL4_ShowScore = true;
+                PlayerPrefs.SetInt("lvl5", 1);
+              PlayerPrefs.SetInt("lvl4_scr", 1);
               break;
               case "Level_5":
               Levels_Manager.LVL6 = true;
                Levels_Manager.LVL5_ShowScore = true;
+                PlayerPrefs.SetInt("lvl6", 1);
+              PlayerPrefs.SetInt("lvl5_scr", 1);
               break;
               case "Level_6":
               Levels_Manager.LVL7 = true;
                Levels_Manager.LVL6_ShowScore = true;
+                PlayerPrefs.SetInt("lvl7", 1);
+              PlayerPrefs.SetInt("lvl6_scr", 1);
               break;
               case "Level_7":
               Levels_Manager.LVL8 = true;
                Levels_Manager.LVL7_ShowScore = true;
+                PlayerPrefs.SetInt("lvl8", 1);
+              PlayerPrefs.SetInt("lvl7_scr", 1);
               break;
               case "Level_8":
                Levels_Manager.LVL8_ShowScore = true;
+              PlayerPrefs.SetInt("lvl8_scr", 1);
               break;
               }
             if(DIALOG_MANAGER.NR_DIALOGU == 35){
@@ -603,7 +620,7 @@ Vector3Int mousePos = GetMousePosition();
 if(ShopMenu.MinaEntity && MECH >= 50){
                   
                 MECH -= 50;
-                //DIALOG_MANAGER.PJ++;
+               DIALOG_MANAGER.PJ++;
                 Vector3 d = new Vector3(mousePos.x, mousePos.y, 0.6f);
                 var spawnPoint = grid.GetCellCenterWorld(grid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition)));
            var i = Instantiate(Resources.Load("mina_POL"), spawnPoint, transform.rotation);
@@ -627,7 +644,7 @@ if(ShopMenu.MinaEntity && MECH >= 50){
              if(ShopMenu.SztormSoldier && (RZ >= 30 && AMM >= 30)){
                 RZ -= 30;
                 AMM -= 30;
-                //DIALOG_MANAGER.PJ++;
+                DIALOG_MANAGER.PJ++;
                 Vector3 d = new Vector3(mousePos.x, mousePos.y, 0.6f);
                 var spawnPoint = grid.GetCellCenterWorld(grid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition)));
            var i = Instantiate(Resources.Load("Szturmsol_POL"), spawnPoint, transform.rotation);
@@ -636,7 +653,7 @@ if(ShopMenu.MinaEntity && MECH >= 50){
             if(ShopMenu.SnajperSoldier && (RZ >= 10 && AMM >= 40)){
                 RZ -= 10;
                 AMM -= 40;
-                //DIALOG_MANAGER.PJ++;
+                DIALOG_MANAGER.PJ++;
                 Vector3 d = new Vector3(mousePos.x, mousePos.y, 0.6f);
                 var spawnPoint = grid.GetCellCenterWorld(grid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition)));
            var i = Instantiate(Resources.Load("snipersol_POL"), spawnPoint, transform.rotation);
@@ -646,7 +663,7 @@ if(ShopMenu.MinaEntity && MECH >= 50){
             if(ShopMenu.CzolgEntity && (MECH >= 50 && AMM >= 30)){
                 MECH -= 75;
                 AMM -= 30;
-                //DIALOG_MANAGER.PJ++;
+                DIALOG_MANAGER.PJ++;
                 Vector3 d = new Vector3(mousePos.x, mousePos.y, 0.6f);
                 var spawnPoint = grid.GetCellCenterWorld(grid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition)));
            var i = Instantiate(Resources.Load("czolg_POL"), spawnPoint, transform.rotation);
@@ -674,24 +691,24 @@ switch(hit.collider.name){
     Destroy(hit.transform.gameObject);
     break;
      case "sztormsol_POL":
-              // DIALOG_MANAGER.PJ--;
+               DIALOG_MANAGER.PJ--;
      RZ += 30;
      AMM += 30;
     Destroy(hit.transform.gameObject);
     break;
      case "snipersol_POL":
-             //  DIALOG_MANAGER.PJ--;
+               DIALOG_MANAGER.PJ--;
      RZ += 10;
      AMM += 40;
     Destroy(hit.transform.gameObject);
     break;
      case "minaEnt_POL":
-              // DIALOG_MANAGER.PJ--;
+               DIALOG_MANAGER.PJ--;
      MECH += 50;
     Destroy(hit.transform.gameObject);
     break;
      case "czolgEnt_POL":
-              // DIALOG_MANAGER.PJ--;
+               DIALOG_MANAGER.PJ--;
      MECH += 75;
      AMM += 30;
     Destroy(hit.transform.gameObject);

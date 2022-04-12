@@ -10,6 +10,7 @@ public class AI_CONTROLLER : MonoBehaviour
     public GameObject OBJ_HP;
     private bool StopNshoot, ShootTheBase;
     public bool AtkBoost, MoneyBoost, HPBoost;
+    public float Speed;
     private GameObject bul;
      Collider2D[] hitColliders;
     [SerializeField] private float cooldown = 5f;
@@ -73,7 +74,7 @@ if(Vector3.Distance(transform.position, target.position) <= 0.1f){
       if(gameObject.tag == "enemy"){
   if(!StopNshoot){
     Vector3 dir = target.position - transform.position;
-          transform.parent.Translate(dir.normalized * ManagerForSecondProject.EnemySpeed * Time.deltaTime, Space.World);
+          transform.parent.Translate(dir.normalized * Speed * Time.deltaTime, Space.World);
    
         
           /* Vector3 difference = target.transform.position - transform.position;

@@ -10,6 +10,8 @@ public class Levels_Manager : MonoBehaviour
     public Button Zacznij_Gre;
     public Text Nazwa_Poziomu, Opis_Poziomu, Lokacja_i_Czas_Poziomu, przerywacz;
     public AudioSource click;
+    public Sprite Selected, Deselected;
+    public GameObject SplashScreen;
     private string Level_To_Play;
     public static bool LVL0_ShowScore,LVL1, LVL1_ShowScore, LVL2, LVL2_ShowScore, LVL3, LVL3_ShowScore, LVL4, LVL4_ShowScore, LVL5, LVL5_ShowScore, LVL6,  LVL6_ShowScore, LVL7, LVL7_ShowScore, LVL8, LVL8_ShowScore;
     public static int LVL0_Score, LVL0_HighScore, LVL1_Score, LVL1_HighScore, LVL2_Score, LVL2_HighScore, LVL3_Score, LVL3_HighScore, LVL4_Score, LVL4_HighScore, LVL5_Score, LVL5_HighScore, LVL6_Score, LVL6_HighScore, LVL7_Score, LVL7_HighScore, LVL8_Score, LVL8_HighScore;
@@ -31,6 +33,7 @@ public class Levels_Manager : MonoBehaviour
         Wybierz_Level[8].onClick.AddListener(LvL8);     
         Zacznij_Gre.onClick.AddListener(PlayIt);
 		
+        
     }
 
     
@@ -63,60 +66,64 @@ public class Levels_Manager : MonoBehaviour
         if(LVL8_Score >= LVL8_HighScore){
             LVL8_HighScore = LVL8_Score;
         }
-        //DEVELOPER STUFF - do wyjebania jak osiągniemy release vesion
+        //DEVELOPER STUFF - do wykomentowania na release
         if(Input.GetKeyDown("1")){
-            LVL1 = true;
+            
+            PlayerPrefs.SetInt("lvl1", 1);
         }
         if(Input.GetKeyDown("2")){
-            LVL2 = true;
+            PlayerPrefs.SetInt("lvl2", 1);
         }
         if(Input.GetKeyDown("3")){
-            LVL3 = true;
+            PlayerPrefs.SetInt("lvl3", 1);
         }
         if(Input.GetKeyDown("4")){
-            LVL4 = true;
+            PlayerPrefs.SetInt("lvl4", 1);
         }
          if(Input.GetKeyDown("5")){
-            LVL5 = true;
+            PlayerPrefs.SetInt("lvl5", 1);
         }
          if(Input.GetKeyDown("6")){
-            LVL6 = true;
+           PlayerPrefs.SetInt("lvl6", 1);
         }if(Input.GetKeyDown("7")){
-            LVL7 = true;
+            PlayerPrefs.SetInt("lvl7", 1);
         }if(Input.GetKeyDown("8")){
-            LVL8 = true;
+            PlayerPrefs.SetInt("lvl8", 1);
+        }if(Input.GetKeyDown("z")){
+            PlayerPrefs.DeleteAll();
         }
         
     
-        if(LVL1 == true){
-            Wybierz_Level[1].transform.parent.GetChild(1).gameObject.SetActive(false);
+        if(PlayerPrefs.GetInt("lvl1") == 1){
+            
+            Wybierz_Level[1].transform.GetChild(2).gameObject.SetActive(false);
             Wybierz_Level[1].interactable = true;
         }
-        if(LVL2 == true){
-            Wybierz_Level[2].transform.parent.GetChild(1).gameObject.SetActive(false);
+        if(PlayerPrefs.GetInt("lvl2") == 1){
+            Wybierz_Level[2].transform.GetChild(2).gameObject.SetActive(false);
             Wybierz_Level[2].interactable = true;
         }
-         if(LVL3 == true){
-            Wybierz_Level[3].transform.parent.GetChild(1).gameObject.SetActive(false);
+         if(PlayerPrefs.GetInt("lvl3") == 1){
+            Wybierz_Level[3].transform.GetChild(2).gameObject.SetActive(false);
             Wybierz_Level[3].interactable = true;
         }
-         if(LVL4 == true){
-            Wybierz_Level[4].transform.parent.GetChild(1).gameObject.SetActive(false);
+         if(PlayerPrefs.GetInt("lvl4") == 1){
+            Wybierz_Level[4].transform.GetChild(2).gameObject.SetActive(false);
             Wybierz_Level[4].interactable = true;
         }
-         if(LVL5 == true){
-            Wybierz_Level[5].transform.parent.GetChild(1).gameObject.SetActive(false);
+         if(PlayerPrefs.GetInt("lvl5") == 1){
+            Wybierz_Level[5].transform.GetChild(2).gameObject.SetActive(false);
             Wybierz_Level[5].interactable = true;
         }
-         if(LVL6 == true){
-            Wybierz_Level[6].transform.parent.GetChild(1).gameObject.SetActive(false);
+         if(PlayerPrefs.GetInt("lvl6") == 1){
+            Wybierz_Level[6].transform.GetChild(2).gameObject.SetActive(false);
             Wybierz_Level[6].interactable = true;
         }
-         if(LVL7 == true){
-            Wybierz_Level[7].transform.parent.GetChild(1).gameObject.SetActive(false);
+         if(PlayerPrefs.GetInt("lvl7") == 1){
+            Wybierz_Level[7].transform.GetChild(2).gameObject.SetActive(false);
             Wybierz_Level[7].interactable = true;
-        }if(LVL8 == true){
-            Wybierz_Level[8].transform.parent.GetChild(1).gameObject.SetActive(false);
+        }if(PlayerPrefs.GetInt("lvl8") == 1){
+            Wybierz_Level[8].transform.GetChild(2).gameObject.SetActive(false);
             Wybierz_Level[8].interactable = true;
         }
         if(Level_To_Play == null){
@@ -127,31 +134,31 @@ public class Levels_Manager : MonoBehaviour
                           Zacznij_Gre.transform.GetChild(0).GetComponent<Text>().text = "ZACZNIJ GRE";
         }
 
-        if(LVL0_ShowScore){
+        if(PlayerPrefs.GetInt("lvl0_scr") == 1){
           Wybierz_Level[0].transform.parent.GetChild(1).gameObject.SetActive(true);
         }
-        if(LVL1_ShowScore){
+        if(PlayerPrefs.GetInt("lvl1") == 1){
             Wybierz_Level[1].transform.parent.GetChild(2).gameObject.SetActive(true);
         }
-        if(LVL2_ShowScore){
+        if(PlayerPrefs.GetInt("lvl2") == 1){
             Wybierz_Level[2].transform.parent.GetChild(2).gameObject.SetActive(true);
         }
-        if(LVL3_ShowScore){
+        if(PlayerPrefs.GetInt("lvl3") == 1){
             Wybierz_Level[3].transform.parent.GetChild(2).gameObject.SetActive(true);
         }
-        if(LVL4_ShowScore){
+        if(PlayerPrefs.GetInt("lvl4") == 1){
             Wybierz_Level[4].transform.parent.GetChild(2).gameObject.SetActive(true);
         }
-        if(LVL5_ShowScore){
+        if(PlayerPrefs.GetInt("lvl5") == 1){
             Wybierz_Level[5].transform.parent.GetChild(2).gameObject.SetActive(true);
         }
-        if(LVL6_ShowScore){
+        if(PlayerPrefs.GetInt("lvl6") == 1){
             Wybierz_Level[6].transform.parent.GetChild(2).gameObject.SetActive(true);
         }
-        if(LVL7_ShowScore){
+        if(PlayerPrefs.GetInt("lvl7") == 1){
             Wybierz_Level[7].transform.parent.GetChild(2).gameObject.SetActive(true);
         }
-        if(LVL8_ShowScore){
+        if(PlayerPrefs.GetInt("lvl8") == 1){
             Wybierz_Level[8].transform.parent.GetChild(2).gameObject.SetActive(true);
         }
     }
@@ -169,8 +176,10 @@ public class Levels_Manager : MonoBehaviour
         for(int i = 0; i < 8; i++){
           if(i == 0) continue;
            Wybierz_Level[i].transform.GetChild(0).GetComponent<Text>().text = "WYBIERZ";
+           Wybierz_Level[i].GetComponent<Image>().sprite = Deselected;
         }
         if(Nazwa_Poziomu.enabled == false || Opis_Poziomu.enabled == false || Lokacja_i_Czas_Poziomu.enabled == false || przerywacz.enabled == false){
+            Wybierz_Level[0].GetComponent<Image>().sprite = Selected;
             Nazwa_Poziomu.enabled = true;
             przerywacz.enabled = true;
             Opis_Poziomu.enabled = true;
@@ -181,6 +190,7 @@ public class Levels_Manager : MonoBehaviour
         Level_To_Play = "Tutorial_Level";
         Wybierz_Level[0].transform.GetChild(0).GetComponent<Text>().text = "ODZNACZ";
         } else{
+            Wybierz_Level[0].GetComponent<Image>().sprite = Deselected;
              Nazwa_Poziomu.enabled = false;
             przerywacz.enabled = false;
             Opis_Poziomu.enabled = false;
@@ -197,9 +207,11 @@ public class Levels_Manager : MonoBehaviour
         click.Play();
           for(int i = 0; i < 8; i++){
           if(i == 1) continue;
+           Wybierz_Level[i].GetComponent<Image>().sprite = Deselected;
            Wybierz_Level[i].transform.GetChild(0).GetComponent<Text>().text = "WYBIERZ";
         }
         if(Nazwa_Poziomu.enabled == false || Opis_Poziomu.enabled == false || Lokacja_i_Czas_Poziomu.enabled == false || przerywacz.enabled == false){
+            Wybierz_Level[1].GetComponent<Image>().sprite = Selected;
             Nazwa_Poziomu.enabled = true;
             przerywacz.enabled = true;
             Opis_Poziomu.enabled = true;
@@ -210,6 +222,7 @@ public class Levels_Manager : MonoBehaviour
         Level_To_Play = "Level_1";
         Wybierz_Level[1].transform.GetChild(0).GetComponent<Text>().text = "ODZNACZ";
         } else{
+            Wybierz_Level[1].GetComponent<Image>().sprite = Deselected;
              Nazwa_Poziomu.enabled = false;
             przerywacz.enabled = false;
             Opis_Poziomu.enabled = false;
@@ -225,9 +238,11 @@ public class Levels_Manager : MonoBehaviour
         click.Play();
           for(int i = 0; i < 8; i++){
           if(i == 2) continue;
+          Wybierz_Level[i].GetComponent<Image>().sprite = Deselected;
            Wybierz_Level[i].transform.GetChild(0).GetComponent<Text>().text = "WYBIERZ";
         }
         if(Nazwa_Poziomu.enabled == false || Opis_Poziomu.enabled == false || Lokacja_i_Czas_Poziomu.enabled == false || przerywacz.enabled == false){
+            Wybierz_Level[2].GetComponent<Image>().sprite = Selected;
             Nazwa_Poziomu.enabled = true;
             przerywacz.enabled = true;
             Opis_Poziomu.enabled = true;
@@ -238,6 +253,7 @@ public class Levels_Manager : MonoBehaviour
         Level_To_Play = "Level_2";
         Wybierz_Level[2].transform.GetChild(0).GetComponent<Text>().text = "ODZNACZ";
         } else{
+            Wybierz_Level[2].GetComponent<Image>().sprite = Deselected;
              Nazwa_Poziomu.enabled = false;
             przerywacz.enabled = false;
             Opis_Poziomu.enabled = false;
@@ -252,9 +268,11 @@ public class Levels_Manager : MonoBehaviour
         click.Play();
          for(int i = 0; i < 8; i++){
           if(i == 3) continue;
+          Wybierz_Level[i].GetComponent<Image>().sprite = Deselected;
            Wybierz_Level[i].transform.GetChild(0).GetComponent<Text>().text = "WYBIERZ";
         }
         if(Nazwa_Poziomu.enabled == false || Opis_Poziomu.enabled == false || Lokacja_i_Czas_Poziomu.enabled == false || przerywacz.enabled == false){
+            Wybierz_Level[3].GetComponent<Image>().sprite = Selected;
             Nazwa_Poziomu.enabled = true;
             przerywacz.enabled = true;
             Opis_Poziomu.enabled = true;
@@ -265,6 +283,7 @@ public class Levels_Manager : MonoBehaviour
         Level_To_Play = "Level_3";
         Wybierz_Level[3].transform.GetChild(0).GetComponent<Text>().text = "ODZNACZ";
         } else{
+            Wybierz_Level[3].GetComponent<Image>().sprite = Deselected;
              Nazwa_Poziomu.enabled = false;
             przerywacz.enabled = false;
             Opis_Poziomu.enabled = false;
@@ -278,9 +297,11 @@ public class Levels_Manager : MonoBehaviour
         click.Play();
            for(int i = 0; i < 8; i++){
           if(i == 4) continue;
+          Wybierz_Level[i].GetComponent<Image>().sprite = Deselected;
            Wybierz_Level[i].transform.GetChild(0).GetComponent<Text>().text = "WYBIERZ";
         }
         if(Nazwa_Poziomu.enabled == false || Opis_Poziomu.enabled == false || Lokacja_i_Czas_Poziomu.enabled == false || przerywacz.enabled == false){
+            Wybierz_Level[4].GetComponent<Image>().sprite = Selected;
             Nazwa_Poziomu.enabled = true;
             przerywacz.enabled = true;
             Opis_Poziomu.enabled = true;
@@ -291,6 +312,7 @@ public class Levels_Manager : MonoBehaviour
         Level_To_Play = "Level_4";
         Wybierz_Level[4].transform.GetChild(0).GetComponent<Text>().text = "ODZNACZ";
         } else{
+            Wybierz_Level[4].GetComponent<Image>().sprite = Deselected;
              Nazwa_Poziomu.enabled = false;
             przerywacz.enabled = false;
             Opis_Poziomu.enabled = false;
@@ -305,9 +327,11 @@ public class Levels_Manager : MonoBehaviour
         click.Play();
            for(int i = 0; i < 8; i++){
           if(i == 5) continue;
+          Wybierz_Level[i].GetComponent<Image>().sprite = Deselected;
            Wybierz_Level[i].transform.GetChild(0).GetComponent<Text>().text = "WYBIERZ";
         }
         if(Nazwa_Poziomu.enabled == false || Opis_Poziomu.enabled == false || Lokacja_i_Czas_Poziomu.enabled == false || przerywacz.enabled == false){
+            Wybierz_Level[5].GetComponent<Image>().sprite = Selected;
             Nazwa_Poziomu.enabled = true;
             przerywacz.enabled = true;
             Opis_Poziomu.enabled = true;
@@ -318,6 +342,7 @@ public class Levels_Manager : MonoBehaviour
         Level_To_Play = "Level_5";
         Wybierz_Level[5].transform.GetChild(0).GetComponent<Text>().text = "ODZNACZ";
         } else{
+            Wybierz_Level[5].GetComponent<Image>().sprite = Deselected;
              Nazwa_Poziomu.enabled = false;
             przerywacz.enabled = false;
             Opis_Poziomu.enabled = false;
@@ -332,9 +357,11 @@ public class Levels_Manager : MonoBehaviour
         click.Play();
            for(int i = 0; i < 8; i++){
           if(i == 6) continue;
+          Wybierz_Level[i].GetComponent<Image>().sprite = Deselected;
            Wybierz_Level[i].transform.GetChild(0).GetComponent<Text>().text = "WYBIERZ";
         }
         if(Nazwa_Poziomu.enabled == false || Opis_Poziomu.enabled == false || Lokacja_i_Czas_Poziomu.enabled == false || przerywacz.enabled == false){
+            Wybierz_Level[6].GetComponent<Image>().sprite = Selected;
             Nazwa_Poziomu.enabled = true;
             przerywacz.enabled = true;
             Opis_Poziomu.enabled = true;
@@ -345,6 +372,7 @@ public class Levels_Manager : MonoBehaviour
         Level_To_Play = "Level_6";
         Wybierz_Level[6].transform.GetChild(0).GetComponent<Text>().text = "ODZNACZ";
         } else{
+            Wybierz_Level[6].GetComponent<Image>().sprite = Deselected;
              Nazwa_Poziomu.enabled = false;
             przerywacz.enabled = false;
             Opis_Poziomu.enabled = false;
@@ -359,9 +387,13 @@ public class Levels_Manager : MonoBehaviour
         click.Play();
           for(int i = 0; i < 8; i++){
           if(i == 7) continue;
+                   Debug.Log(i);
+
+          Wybierz_Level[i].GetComponent<Image>().sprite = Deselected;
            Wybierz_Level[i].transform.GetChild(0).GetComponent<Text>().text = "WYBIERZ";
         }
         if(Nazwa_Poziomu.enabled == false || Opis_Poziomu.enabled == false || Lokacja_i_Czas_Poziomu.enabled == false || przerywacz.enabled == false){
+            Wybierz_Level[7].GetComponent<Image>().sprite = Selected;
             Nazwa_Poziomu.enabled = true;
             przerywacz.enabled = true;
             Opis_Poziomu.enabled = true;
@@ -372,6 +404,7 @@ public class Levels_Manager : MonoBehaviour
         Level_To_Play = "Level_7";
         Wybierz_Level[7].transform.GetChild(0).GetComponent<Text>().text = "ODZNACZ";
         } else{
+            Wybierz_Level[7].GetComponent<Image>().sprite = Deselected;
              Nazwa_Poziomu.enabled = false;
             przerywacz.enabled = false;
             Opis_Poziomu.enabled = false;
@@ -383,22 +416,25 @@ public class Levels_Manager : MonoBehaviour
     }
 
     void LvL8(){
-        click.Play();
-        for(int i = 0; i < 8; i++){
+       click.Play();
+           for(int i = 0; i < 8; i++){
           if(i == 8) continue;
+          Wybierz_Level[i].GetComponent<Image>().sprite = Deselected;
            Wybierz_Level[i].transform.GetChild(0).GetComponent<Text>().text = "WYBIERZ";
         }
         if(Nazwa_Poziomu.enabled == false || Opis_Poziomu.enabled == false || Lokacja_i_Czas_Poziomu.enabled == false || przerywacz.enabled == false){
+            Wybierz_Level[8].GetComponent<Image>().sprite = Selected;
             Nazwa_Poziomu.enabled = true;
             przerywacz.enabled = true;
             Opis_Poziomu.enabled = true;
             Lokacja_i_Czas_Poziomu.enabled = true;
-            Nazwa_Poziomu.text = "Porażka";
-        Lokacja_i_Czas_Poziomu.text = "Lokacja: Obóz Gęsiówka";
-        Opis_Poziomu.text = "Niestety coś poszło nie po waszej myśli i cały plan poszedł z dymem, dowiadujesz się o wielu złych rzeczach, twój batalion zaczyna umierać a do twoich drzwi puka ktoś, ale kto? Czy będzie to ktoś przyjazny, czy będzie to wróg? Tego nie wiesz więc otwierasz drzwi i ….";
-        Level_To_Play = "Level_7";
+            Nazwa_Poziomu.text = "Kasa oszczędności";
+        Lokacja_i_Czas_Poziomu.text = "Lokacja: Bank Polski";
+        Opis_Poziomu.text = "Niemcy przejęli Bank Polski i tam zarządzają swoimi finansami, to jest dość mocny cios w obie strony i zadanie twojej drużyny to odzyskanie i obrona gmachu Banku Polskiego. Jest to miejsce mocno strategiczne dlatego twoim planem jest przeniesienie tam swojej siedziby z hotelu Victoria.";
+        Level_To_Play = "Level_6";
         Wybierz_Level[8].transform.GetChild(0).GetComponent<Text>().text = "ODZNACZ";
         } else{
+            Wybierz_Level[8].GetComponent<Image>().sprite = Deselected;
              Nazwa_Poziomu.enabled = false;
             przerywacz.enabled = false;
             Opis_Poziomu.enabled = false;

@@ -233,9 +233,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 4670189440081965354}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 95
+  m_MaxValue: 9
   m_WholeNumbers: 0
-  m_Value: 95
+  m_Value: 9
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -480,7 +480,6 @@ GameObject:
   - component: {fileID: 8012564004755176348}
   - component: {fileID: 8012564004755176349}
   - component: {fileID: 1899040959790378823}
-  - component: {fileID: 5299202478357278416}
   - component: {fileID: 180362418910344565}
   - component: {fileID: 5813594068272313420}
   m_Layer: 3
@@ -512,7 +511,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8012564004755176350}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -547,23 +546,8 @@ MonoBehaviour:
   AtkBoost: 0
   MoneyBoost: 0
   HPBoost: 0
-  cooldown: 0.5
---- !u!114 &5299202478357278416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8012564004755176350}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44512008474170144a8a7ea9a15cf3a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 100
-  FullHealth: 0
-  HP_BAR: {fileID: 6079453077996809281}
-  GO: {fileID: 0}
+  Speed: 0
+  cooldown: 2
 --- !u!50 &180362418910344565
 Rigidbody2D:
   serializedVersion: 4
@@ -802,7 +786,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &2507802248654924561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -858,7 +842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44512008474170144a8a7ea9a15cf3a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 95
+  Health: 9
   FullHealth: 0
   HP_BAR: {fileID: 6079453077996809281}
   GO: {fileID: 0}

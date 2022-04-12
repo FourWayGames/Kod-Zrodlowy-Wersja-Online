@@ -64,7 +64,7 @@ if((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) && ManagerFo
         break;
         case 4:
          TXT_autor.text = "JERZY";
-        TXT_dialog.text = "Niemcy robią zaraz najazd na Hotel, a my potrzebujemy dowódcy.";
+        TXT_dialog.text = "Niemcy robią zaraz najazd na <color=red>Hotel</color>, a my potrzebujemy dowódcy.";
         break;
         case 5:
         TXT_autor.text = "STEFAN";
@@ -241,7 +241,7 @@ if(PJ <= 0){
         break;
         case 32:
         TXT_autor.text = "FourWayGames";
-        TXT_dialog.text = "To wszystko z naszej strony, ale jeśli chcesz sobie coś przypomnieć z tego samouczka, to w głównym menu właśnie odblokowano przycisk 'Historia' w którym możesz przejrzeć najważniejsze informacje zaznaczone na czerwono";
+        TXT_dialog.text = "To wszystko z naszej strony, ale jeśli chcesz sobie coś przypomnieć z tego samouczka, to wystarczy że naciśniesz przycisk 'historia' nad dialogiem!";
         break;
         case 33:
         TXT_autor.text = "FourWayGames";
@@ -276,7 +276,7 @@ if(PJ <= 0){
 
         case 38:
         TXT_autor.text = "ANTONI CHRUŚCIEL";
-        TXT_dialog.text = "Teraz, jak hotel Victoria jest w naszych rękach, to może rozważcie fakt przeniesienia tu bazy?";
+        TXT_dialog.text = "Teraz, jak <color=red>hotel Victoria</color> jest w naszych rękach, to może rozważcie fakt przeniesienia tu bazy?";
         break;
 
         case 39:
@@ -294,7 +294,7 @@ if(PJ <= 0){
         case 41:
 
         TXT_autor.text = "ANTONI CHRUŚCIEL";
-        TXT_dialog.text = "No tak, pomyślałem sobie, że może zechcesz dołączyć do mojego batalionu 'Papiloty' Z warszawskiego oddziału AK?";
+        TXT_dialog.text = "No tak, pomyślałem sobie, że może zechcesz dołączyć do mojego batalionu 'Papiloty' Z warszawskiego <color=red>oddziału AK?</color>";
         break;
         case 42:
 
@@ -324,7 +324,7 @@ if(PJ <= 0){
         case 47:
         LVL1_DIALOG1 = true;
         TXT_autor.text = "OLIWIER";
-        TXT_dialog.text = "Więc jaki jest nasz dalszy plan? W końcu masz dostęp do <color=red>batalionu 'Papiloty'</color>";
+        TXT_dialog.text = "Więc jaki jest nasz dalszy plan? W końcu masz dostęp do batalionu 'Papiloty";
         break;
         case 48:
         TXT_autor.text = "KAMIL";
@@ -332,15 +332,15 @@ if(PJ <= 0){
         break;
         case 49:
         TXT_autor.text = "KAMIL";
-        TXT_dialog.text = "I tu fajna część, kojarzysz gmach Prudential, nie? Niemcy go przejeli";
+        TXT_dialog.text = "I tu fajna część, kojarzysz <color=red>gmach Prudential</color>, nie? Niemcy go przejeli, ale Polacy zamierzają go dziś odbić!";
         break;
         case 50:
         TXT_autor.text = "KAMIL";
-        TXT_dialog.text = "No i przesiaduje tam obecnie ten ich generał, <color=red>Max Dirske</color> to doskonała okazja by go porwać, przepytać...";
+        TXT_dialog.text = "No i przesiaduje tam obecnie ten ich generał, <color=red>Max Dirske</color>, jeśli pomożemy tamtym Polakom, to dostaniemy okazje by go porwać, przepytać...";
         break;
         case 51:
         TXT_autor.text = "KAMIL";
-        TXT_dialog.text = "Ukraść im zasoby, i przejąć budynek spowrotem!";
+        TXT_dialog.text = "I ukraść im zasoby!";
         break;
         case 52:
          TXT_autor.text = "OLIWIER";
@@ -368,7 +368,7 @@ if(PJ <= 0){
         LVL2_DIALOG1 = true;
                 ManagerForSecondProject.BlockForCutscene = true;
         TXT_autor.text = "KAMIL";
-        TXT_dialog.text = "Kto tu umie niemiecki!?";
+        TXT_dialog.text = "Kto tu umie Niemiecki!?";
         break;
         case 57:
          TXT_autor.text = "Żołnierz batalionu";
@@ -380,11 +380,11 @@ if(PJ <= 0){
         break;
         case 59:
          TXT_autor.text = "Żołnierz batalionu";
-        TXT_dialog.text = "Hallo Max, warum erzählst du mir nicht von deinen Plänen? (Cześć Max, może powiesz mi o swoich planach?)";
+        TXT_dialog.text = "Hallo Max, warum erzählst du mir nicht von deinen Plänen? <color=black>(Cześć Max, może powiesz mi o swoich planach?)</color>";
         break;
          case 60:
          TXT_autor.text = "Max";
-        TXT_dialog.text = "Ich werde es dir nicht sagen, polnisches Schwein. Im Allgemeinen spreche ich Polnisch, daher weiß ich nicht, warum wir Deutsch sprechen (Nie powiem ci, polska świnio. Generalnie mówię po polsku, więc nie wiem, dlaczego mówimy po niemiecku)";
+        TXT_dialog.text = "Ich werde es dir nicht sagen, polnisches Schwein. Im Allgemeinen spreche ich Polnisch, daher weiß ich nicht, warum wir Deutsch sprechen <color=black>(Nie powiem ci, polska świnio. Generalnie mówię po polsku, więc nie wiem, dlaczego mówimy po niemiecku)</color>";
         break;
         case 61:
          TXT_autor.text = "Żołnierz batalionu";
@@ -404,7 +404,7 @@ if(PJ <= 0){
         break;
          case 65:
          TXT_autor.text = "Max";
-        TXT_dialog.text = "AGH!!! DOBRA JUŻ DOBRA, POCZTA POLSKA, NASTĘPNY CEL TO POCZTA POLSKA";
+        TXT_dialog.text = "AGH!!! DOBRA JUŻ DOBRA, POCZTA POLSKA, NASTĘPNY CEL TO <color=red>POCZTA POLSKA</color>";
         break;
          case 66:
          TXT_autor.text = "Kamil";
@@ -440,7 +440,7 @@ if(PJ <= 0){
         break;
         case 73:
          TXT_autor.text = "Oliwier";
-        TXT_dialog.text = "O nas sie nie martw, daliśmy rade, gorzej, że Max dał rade uciec...";
+        TXT_dialog.text = "O nas sie nie martw, daliśmy rade, gorzej, że <color=red>Max</color> dał rade uciec...";
         break;
          case 74:
          TXT_autor.text = "Kamil";
@@ -469,19 +469,19 @@ if(PJ <= 0){
         break;
          case 79:
          TXT_autor.text = "Oliwier";
-        TXT_dialog.text = "No tak... przy okazji, pare godzin temu odwiedził nas Henryk Leliwa-Roycewicz, kojarzysz go, nie?";
+        TXT_dialog.text = "No tak... przy okazji, pare godzin temu odwiedził nas <color=red>Henryk Leliwa-Roycewicz</color>, kojarzysz go, nie?";
         break;
          case 80:
          TXT_autor.text = "Kamil";
-        TXT_dialog.text = "No oczywiście że tak, jest dowódcą 'Godziny W' czyli jego Armii złożonej z listonoszy! Co chciał?";
+        TXT_dialog.text = "No oczywiście że tak, jest dowódcą <color=red>'Godziny W'</color> czyli jego Armii złożonej z listonoszy! Co chciał?";
         break;
          case 81:
          TXT_autor.text = "Oliwier";
-        TXT_dialog.text = "Proponował współprace, my pomagamy mu w obronie poczty, a on wzamian da nam pare jednostek do pomocy";
+        TXT_dialog.text = "Proponował współprace, my pomagamy mu w obronie <color=red>poczty</color>, a on wzamian da nam pare jednostek do pomocy";
         break;
          case 82:
          TXT_autor.text = "Kamil";
-        TXT_dialog.text = "Brzmi jak dobry układ, lepiej kierujmy się do niego, Himmler raczej nie żartował...";
+        TXT_dialog.text = "Brzmi jak dobry układ, lepiej kierujmy się do niego, <color=red>Himmler</color> raczej nie żartował...";
         break;
         //TUTORIAL2//////////////////////
         case 83:
@@ -534,11 +534,11 @@ if(PJ <= 0){
         break;
         case 91:
          TXT_autor.text = "FourWayGames";
-        TXT_dialog.text = "To tyle z wprowadzenia! widzimy się ostatni raz, ale pamiętaj, że możesz zawsze sprawdzić najważniejsze informacje o grze w głównym menu pod przyciskiem 'Historia'";
+        TXT_dialog.text = "Widzimy się ostatni raz, ale pamiętaj że zawsze możesz przeczytać wszystko od nowa pod przyciskiem 'Historia' w oknie dialogowym";
         break;
         case 92:
          TXT_autor.text = "FourWayGames";
-        TXT_dialog.text = "Lub też możesz ponownie przeczytać ten samouczek pod przyciskiem 'Historia' w oknie dialogowym!";
+        TXT_dialog.text = "To wszystko!";
         break;
         case 93:
          TXT_autor.text = "FourWayGames";
@@ -556,7 +556,7 @@ if(PJ <= 0){
         LVL3_DIALOG2 = true;
         ManagerForSecondProject.BlockForCutscene = true;
          TXT_autor.text = "Max";
-        TXT_dialog.text = "Udało się! obroniliśmy Poczte Polską!";
+        TXT_dialog.text = "Udało się! obroniliśmy <color=red>Poczte Polską!</color>";
         break;
         case 96:
         LVL3_DIALOG2 = false;
@@ -568,7 +568,7 @@ if(PJ <= 0){
         case 97:
         LVL4_DIALOG1 = true;
          TXT_autor.text = "Oliwier";
-        TXT_dialog.text = "Podsłuchałem radio wroga, idą właśnie na Polską Wytwórnie Papierów Wartościowych";
+        TXT_dialog.text = "Podsłuchałem radio wroga, idą właśnie na <color=red>Polską Wytwórnie Papierów Wartościowych</color>";
         break;
          case 98:
          TXT_autor.text = "Kamil";
@@ -576,7 +576,7 @@ if(PJ <= 0){
         break;
          case 99:
          TXT_autor.text = "Kamil";
-        TXT_dialog.text = "Powiadom o tym ludzi, musimy dać z siebie wszystko przy obronie wytwórni!";
+        TXT_dialog.text = "Powiadom o tym ludzi, musimy dać z siebie wszystko przy obronie <color=red>wytwórni!</color>";
         break;
          case 100:
          TXT_autor.text = "Oliwier";
@@ -611,7 +611,7 @@ if(PJ <= 0){
         break;
          case 106:
          TXT_autor.text = "Kamil";
-        TXT_dialog.text = "Cóż, tak już bywa na wojnie, przy okazji, dostałem właśnie informacje, jakoby rodzina Krasińskich była w tarapatach, prosili nas o pomoc w obronie ich pałacu";
+        TXT_dialog.text = "Cóż, tak już bywa na wojnie, przy okazji, dostałem właśnie informacje, jakoby rodzina Krasińskich była w tarapatach, prosili nas o pomoc w obronie ich <color=red>pałacu</color>";
         break;
         case 107:
          TXT_autor.text = "Oliwier";
@@ -638,7 +638,7 @@ if(PJ <= 0){
          case 111:
          LVL6_DIALOG1 = true;
          TXT_autor.text = "Kamil";
-        TXT_dialog.text = "Oliwier! zrobiło się poważnie, dostałem informacje że wróg kieruje się na bank PKO";
+        TXT_dialog.text = "Oliwier! zrobiło się poważnie, dostałem informacje że wróg kieruje się na <color=red>bank PKO</color>";
         break;
           case 112:
          TXT_autor.text = "Oliwier";
@@ -669,7 +669,7 @@ if(PJ <= 0){
         case 117:
         LVL7_DIALOG1 = true;
          TXT_autor.text = "Kamil";
-        TXT_dialog.text = "Oliwier, zbieraj kogo się da, Polacy odbili Gęsiówke, ale sami nie dadzą rady, musimy im pomóc odepchnąć pozostałych Niemców";
+        TXT_dialog.text = "Oliwier, zbieraj kogo się da, Polacy odbili <color=red>Gęsiówke<color>, ale sami nie dadzą rady, musimy im pomóc odepchnąć pozostałych Niemców";
         break;
         case 118:
          TXT_autor.text = "Oliwier";
@@ -700,7 +700,7 @@ if(PJ <= 0){
         case 123:
         LVL8_DIALOG1 = true;
          TXT_autor.text = "Kamil";
-        TXT_dialog.text = "Właśnie dostałem informacje od jednego z uczniów Politechniki Warszawskiej, że ich szkoła zaczęła obrywać, powinniśmy iść im pomóc ";
+        TXT_dialog.text = "Właśnie dostałem informacje od jednego z uczniów <color=red>Politechniki Warszawskiej</color>, że ich szkoła zaczęła obrywać, powinniśmy iść im pomóc ";
         break;
         case 124:
          TXT_autor.text = "Oliwier";

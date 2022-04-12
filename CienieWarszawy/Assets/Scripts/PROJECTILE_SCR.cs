@@ -7,7 +7,7 @@ public class PROJECTILE_SCR : MonoBehaviour
     private int DAMAGE;
     void Start()
     {
-        
+        Debug.Log(gameObject.transform.parent.name);
         switch(gameObject.transform.parent.name){
             case "PISTOLSOL_POL":
             var OurGuy = gameObject.transform.parent;
@@ -32,11 +32,11 @@ public class PROJECTILE_SCR : MonoBehaviour
             break;
             case "SNIPERSOL_POL":
             gameObject.layer = LayerMask.NameToLayer("BaseProjectile");
-            DAMAGE = 40; 
+            DAMAGE = 45; 
             break;
             case "SZTURMSOL_POL":
             gameObject.layer = LayerMask.NameToLayer("BaseProjectile");
-            DAMAGE = 10; 
+            DAMAGE = 25; 
             break;
         }
     }
@@ -53,7 +53,7 @@ public class PROJECTILE_SCR : MonoBehaviour
             Destroy(gameObject);
             break;
             case "Player":
-            col.gameObject.GetComponent<HEALTH_SCRIPT>().Health -= DAMAGE;
+            col.gameObject.transform.GetComponent<HEALTH_SCRIPT>().Health -= DAMAGE;
             Destroy(gameObject);
             break;
 

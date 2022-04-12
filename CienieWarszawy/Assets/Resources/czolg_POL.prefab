@@ -368,7 +368,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &8445306154565617879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -579,6 +579,7 @@ MonoBehaviour:
   AtkBoost: 0
   MoneyBoost: 0
   HPBoost: 0
+  Speed: 0
   cooldown: 1.7
 --- !u!114 &2194604848867413270
 MonoBehaviour:

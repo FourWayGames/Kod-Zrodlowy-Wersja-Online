@@ -7,7 +7,7 @@ public class AI_CONTROLLER : MonoBehaviour
     private Transform target;
     private int WavePointIndex = 0;
     public static int Liczba_WP, Liczba_WP2, Liczba_WP3;
-    public GameObject OBJ_HP;
+    public GameObject OBJ_HP, sh_part;
     private bool StopNshoot, ShootTheBase;
     public bool AtkBoost, MoneyBoost, HPBoost;
     public float Speed;
@@ -20,7 +20,10 @@ private AudioSource GunSounds;
     void Start()
     {
        GunSounds = GetComponent<AudioSource>();
-        bul = GameObject.FindWithTag("MB");
+        //bul = GameObject.FindWithTag("MB");
+        
+ 
+      
         if(gameObject.tag == "Player"){
         Physics2D.IgnoreLayerCollision(3, 0, true);
         }
@@ -44,6 +47,7 @@ private AudioSource GunSounds;
 
     void Update()
     {       
+      
       switch(gameObject.name){
         case "GER_NORMALSOL":
    hitColliders = Physics2D.OverlapCircleAll(gameObject.transform.position, 1.13f); 
@@ -263,6 +267,7 @@ void OnTriggerEnter2D(Collider2D col){
     if(cooldownTimer > 0) return;
     cooldownTimer = cooldown;
     GunSounds.Play();
+    StartCoroutine(ShootParticle());
       var P = Instantiate(Resources.Load("Projectile"), transform.position + (transform.right*1), transform.rotation) as GameObject;
       P.transform.SetParent(transform);
                      P.GetComponent<Rigidbody2D>().velocity = transform.right * 40;
@@ -270,5 +275,12 @@ void OnTriggerEnter2D(Collider2D col){
                      
     }
 
+IEnumerator ShootParticle()
+ {
+       sh_part.SetActive(true);
+     yield return new WaitForSeconds(0.3f);
+     sh_part.SetActive(false);
+     
+ }
     
 }

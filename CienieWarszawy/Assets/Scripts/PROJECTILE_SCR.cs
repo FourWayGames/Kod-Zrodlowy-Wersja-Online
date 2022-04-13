@@ -7,7 +7,7 @@ public class PROJECTILE_SCR : MonoBehaviour
     private int DAMAGE;
     void Start()
     {
-        Debug.Log(gameObject.transform.parent.name);
+        
         switch(gameObject.transform.parent.name){
             case "PISTOLSOL_POL":
             var OurGuy = gameObject.transform.parent;

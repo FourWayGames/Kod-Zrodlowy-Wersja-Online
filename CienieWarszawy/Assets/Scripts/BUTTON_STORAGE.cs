@@ -50,10 +50,14 @@ public class BUTTON_STORAGE : MonoBehaviour
         if(SplashScreen == null && !sdt.isPlaying){
             sdt.Play();
         }
-        if(Input.GetKey(KeyCode.Escape)){
-            MainMenu.SetActive(true);
+        if(Input.GetKeyDown(KeyCode.Escape)){
+          
+            GRAJ.SetActive(false);
+            DZW.SetActive(false);
+            AUTO.SetActive(false);
+            HST.SetActive(false);
         }
-          if((GRAJ.activeSelf || DZW.activeSelf || AUTO.activeSelf || HST.activeSelf) && !SwitchTab){
+          if(GRAJ.activeSelf || DZW.activeSelf || AUTO.activeSelf || HST.activeSelf){
               MainMenu.SetActive(false);
           }else{
               MainMenu.SetActive(true);

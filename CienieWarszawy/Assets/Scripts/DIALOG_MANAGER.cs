@@ -716,43 +716,95 @@ if(PJ <= 0){
         LVL8_DIALOG2 = true;
          ManagerForSecondProject.BlockForCutscene = true;
          TXT_autor.text = "Kamil";
-        TXT_dialog.text = "Kolejny sukces! widziałeś mine tych uczniów? szczęśliwi jak nigdy";
+        TXT_dialog.text = "O kurcze, udało się! To była największa bitwa w moim życiu...";
         break;
          case 127:
-         TXT_autor.text = "Oliwier";
-        TXT_dialog.text = "Cieszy mnie to! W końcu tam tkwi ich kariera";
+         TXT_autor.text = "Kamil";
+        TXT_dialog.text = "Miejmy nadzieje że już po wszystkim, nie? Oliwier?";
         break;
-         case 128:
-         LVL8_DIALOG2 = false;
-         WinPanel.SetActive(true);
-          NR_DIALOGU++;
-              gameObject.SetActive(false);
+        case 128:
+         TXT_autor.text = "Kamil";
+        TXT_dialog.text = "Huh? A gdzie on sie podział? Hej żołnierzu! Widziałeś gdzieś Oliwiera?";
         break;
         case 129:
-         TXT_autor.text = "Kamil";
-        TXT_dialog.text = "Wróg się zbliża... przez te ostatnie dni mam wrażenie jakby nasze dni były już policzone...";
+         TXT_autor.text = "Żołnierz Batalionu";
+        TXT_dialog.text = "Tak, siedzi za tamtą rozwaloną ścianą z medykiem, z tego co widziałem jest ranny";
         break;
         case 130:
-         TXT_autor.text = "Oliwier";
-        TXT_dialog.text = "Taa... Niemcy w końcu odkryli kto stoi za tymi sukcesami w odpieraniu ich, znaleźli nas, i chcą nas dopaść...";
+         TXT_autor.text = "Kamil";
+        TXT_dialog.text = "Co!? Musze tam szybko biec!";
         break;
         case 131:
          TXT_autor.text = "Kamil";
-        TXT_dialog.text = "Jedno jest pewne, musimy dać z siebie wszystko... to może być nasza ostatnia rozmowa";
+        TXT_dialog.text = "Oliwier! wszystko w porządku?!";
         break;
-         case 132:
+        case 132:
          TXT_autor.text = "Oliwier";
-        TXT_dialog.text = "Powodzenia";
+        TXT_dialog.text = "T..Ta, to tylko lekkie draśnięcie";
         break;
         case 133:
-         TXT_autor.text = "Kamil";
-        TXT_dialog.text = "Jasne, Powodzenia...";
+         TXT_autor.text = "Oliwier";
+        TXT_dialog.text = "Bardziej ważne jest *Kaszel* to co zabrałem jednemu Niemcowi... Sam zobacz";
         break;
         case 134:
-         WinPanel.SetActive(true);
-          NR_DIALOGU++;
-              gameObject.SetActive(false);
+         TXT_autor.text = "Zakrwawiony List";
+        TXT_dialog.text = "Dranie z Batalionu papiloty są dla nas zagrożeniem, zbierz wszystkie jednostki jakie masz i natychmiast ruszaj na politechnike";
         break;
+        case 135:
+         TXT_autor.text = "Zakrwawiony List";
+        TXT_dialog.text = "Inne jednostki dołączą do ciebie wkrótce, ruszamy tam pełną mocą, zbyt mocno już nas upokorzyli!";
+        break;
+        case 136:
+         TXT_autor.text = "Kamil";
+        TXT_dialog.text = "Niech to... Czyli to nie koniec, musimy cie gdzieś przetransportować, tu jest niebezpiecznie";
+        break;
+        case 137:
+         TXT_autor.text = "Medyk Batalionu";
+        TXT_dialog.text = "Obawiam się, że nie będzie to konieczne, rana jest zbyt ciężka... I może on umrzeć w każdej chwili";
+        break;
+        case 138:
+         TXT_autor.text = "Kamil";
+        TXT_dialog.text = "...";
+        break;
+        case 139:
+         TXT_autor.text = "Żołnierz Batalionu";
+        TXT_dialog.text = "Hej wszyscy! Kolejna fala Niemców właśnie sie zbliża, przygotujcie sie bo to nie koniec!";
+        break;
+        case 140:
+         TXT_autor.text = "Kamil";
+        TXT_dialog.text = "Nosz nie w tym momencie, musimy cie stąd zabrać Oliwier, musi być jeszcze nadzieja";
+        break;
+        case 141:
+         TXT_autor.text = "Kamil";
+        TXT_dialog.text = "O-Oliwier?";
+        break;
+        case 142:
+         TXT_autor.text = "Medyk Batalionu";
+        TXT_dialog.text = "Chyba nadszedł już na niego czas...";
+        break;
+        case 143:
+         TXT_autor.text = "Kamil";
+        TXT_dialog.text = "...Twoje czyny dla Polski nie zostaną zapomniane Oliwier, już ja tym Niemcom pokaże!";
+        break;
+        case 144:
+         TXT_autor.text = "FourWayGames";
+        TXT_dialog.text = "Z racji iż pokonałeś wcześniej ogromną ilość Niemców, dostajesz 999 zasobów do każdych trzech typów! Pokaż im na co cie stać!";
+        break;
+        case 145:
+        ManagerForSecondProject.RZ = 999;
+        ManagerForSecondProject.AMM = 999;  //Wohoo!
+        ManagerForSecondProject.MECH = 999;
+         LVL8_DIALOG2 = false;
+             ManagerForSecondProject.BlockForCutscene = false;
+         gameObject.SetActive(false);
+        //NR_DIALOGU++;
+        break;
+        // case 145:
+         //WinPanel.SetActive(true);
+         // NR_DIALOGU++;
+           //   gameObject.SetActive(false);
+        //break;
+    
 
         
         case 161:
@@ -868,7 +920,7 @@ if(PJ <= 0){
              NR_DIALOGU = 125;
          }
          if(LVL8_DIALOG2){
-             NR_DIALOGU = 128;
+             NR_DIALOGU = 143;
          }
          }
         
@@ -1014,7 +1066,7 @@ if(Auto_mover.gameObject.transform.GetChild(0).transform.GetComponent<Text>().te
             }
         }
           if(LVL8_DIALOG2){
-            while(NR_DIALOGU != 128){
+            while(NR_DIALOGU != 143){
                 yield return new WaitForSeconds(4);
                 NR_DIALOGU++;
             }

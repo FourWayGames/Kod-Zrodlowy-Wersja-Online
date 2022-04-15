@@ -4352,13 +4352,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 747107822}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 926.5056, y: 498.4863, z: -91}
-  m_LocalScale: {x: 4.740554, y: 5.0823565, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 926.5057, y: 498.4863, z: -91}
+  m_LocalScale: {x: 4.740554, y: 5.082356, z: 1}
   m_Children:
   - {fileID: 493744399}
-  m_Father: {fileID: 1166305480}
-  m_RootOrder: 2
+  m_Father: {fileID: 1158247537}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!61 &747107824
 BoxCollider2D:
@@ -4478,7 +4478,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.004356846, y: 0}
+  m_Offset: {x: -0.0070111305, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4489,7 +4489,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.60984683, y: 1}
+  m_Size: {x: 0.6325828, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &765160244
 GameObject:
@@ -4521,7 +4521,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1166305480}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &765160246
 TilemapRenderer:
@@ -7518,8 +7518,9 @@ Transform:
   - {fileID: 1228598625}
   - {fileID: 1592919392}
   - {fileID: 1652150944}
+  - {fileID: 747107823}
   m_Father: {fileID: 1166305480}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &1158247538
 TilemapRenderer:
@@ -10426,7 +10427,6 @@ Transform:
   m_Children:
   - {fileID: 818565035}
   - {fileID: 637359378}
-  - {fileID: 747107823}
   - {fileID: 1158247537}
   - {fileID: 1457060489}
   - {fileID: 765160245}
@@ -12560,7 +12560,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1166305480}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &1457060490
 TilemapRenderer:

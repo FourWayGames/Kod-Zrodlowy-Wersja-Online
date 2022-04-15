@@ -30,9 +30,9 @@ public class PROJECTILE_SCR : MonoBehaviour
             //Physics2D.IgnoreLayerCollision(8, 7, true);
             DAMAGE = 12;
             break;
-            case "GER_CZOLGSOL":
+            case "GER_TANKSOL":
             //Physics2D.IgnoreLayerCollision(8, 7, true);
-            DAMAGE = 35;
+            DAMAGE = 30;
             break;
             case "Dzialko":
             gameObject.layer = LayerMask.NameToLayer("BaseProjectile");

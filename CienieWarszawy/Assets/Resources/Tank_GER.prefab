@@ -582,7 +582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44512008474170144a8a7ea9a15cf3a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 75
+  Health: 80
   FullHealth: 0
   HP_BAR: {fileID: 8034577451738806050}
   GO: {fileID: 0}
@@ -980,9 +980,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 8868110277715634761}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 75
+  m_MaxValue: 80
   m_WholeNumbers: 0
-  m_Value: 75
+  m_Value: 80
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

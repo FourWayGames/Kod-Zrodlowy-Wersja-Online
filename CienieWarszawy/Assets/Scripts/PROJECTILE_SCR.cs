@@ -7,20 +7,32 @@ public class PROJECTILE_SCR : MonoBehaviour
     private int DAMAGE;
     void Start()
     {
-        
+         
         switch(gameObject.transform.parent.name){
             case "PISTOLSOL_POL":
             var OurGuy = gameObject.transform.parent;
             if(OurGuy.GetComponent<AI_CONTROLLER>().AtkBoost){
-                DAMAGE += 5;
+                DAMAGE += 8;
             }
-            DAMAGE += 5;
+            DAMAGE += 8;
             //Physics2D.IgnoreLayerCollision(3, 8, true); 
             break;
 
             case "GER_NORMALSOL":
             //Physics2D.IgnoreLayerCollision(8, 7, true);
-            DAMAGE = 4;
+            DAMAGE = 8;
+            break;
+            case "GER_SZTURMSOL":
+            //Physics2D.IgnoreLayerCollision(8, 7, true);
+            DAMAGE = 11;
+            break;
+            case "GER_SNIPERSOL":
+            //Physics2D.IgnoreLayerCollision(8, 7, true);
+            DAMAGE = 12;
+            break;
+            case "GER_CZOLGSOL":
+            //Physics2D.IgnoreLayerCollision(8, 7, true);
+            DAMAGE = 35;
             break;
             case "Dzialko":
             gameObject.layer = LayerMask.NameToLayer("BaseProjectile");
@@ -28,15 +40,15 @@ public class PROJECTILE_SCR : MonoBehaviour
             break;
             case "CZOLG_ENT_POL":
             gameObject.layer = LayerMask.NameToLayer("BaseProjectile");
-            DAMAGE = 75; 
+            DAMAGE = 35; 
             break;
             case "SNIPERSOL_POL":
             gameObject.layer = LayerMask.NameToLayer("BaseProjectile");
-            DAMAGE = 45; 
+            DAMAGE = 9; 
             break;
             case "SZTURMSOL_POL":
             gameObject.layer = LayerMask.NameToLayer("BaseProjectile");
-            DAMAGE = 25; 
+            DAMAGE = 11; 
             break;
         }
     }

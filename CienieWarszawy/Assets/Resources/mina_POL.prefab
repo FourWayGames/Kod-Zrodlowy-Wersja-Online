@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5605421509619701015}
   - component: {fileID: 4594135712078699037}
   - component: {fileID: 8552335751281492154}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,8 +32,8 @@ RectTransform:
   m_Father: {fileID: 7541685363703030748}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 11.019989, y: 0}
   m_SizeDelta: {x: 1.36, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 4557842526743853371}
   - component: {fileID: 588666537138032387}
   - component: {fileID: 1097902650115744066}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.00022888184, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -159,7 +159,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8911055347160328577}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: HideShow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,13 +197,13 @@ GameObject:
   m_Component:
   - component: {fileID: 6502084114970968274}
   - component: {fileID: 6438779650755610748}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6502084114970968274
 RectTransform:
   m_ObjectHideFlags: 0
@@ -287,7 +287,7 @@ GameObject:
   - component: {fileID: 4802600637767434702}
   - component: {fileID: 576600189852348097}
   - component: {fileID: 3275374076258467988}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,7 +361,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2764116380831038946}
   - component: {fileID: 5630858976644016552}
-  m_Layer: 3
+  - component: {fileID: 1672133560507598184}
+  - component: {fileID: 7238502412019862172}
+  m_Layer: 0
   m_Name: Square
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -433,6 +435,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1672133560507598184
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6675906795327012500}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 533e6bb4b38911e4dac2abcc431358e5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!111 &7238502412019862172
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6675906795327012500}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: d12312e7650b0c14595a08bbb696c127, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: d12312e7650b0c14595a08bbb696c127, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &7077394882245533603
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,7 +484,7 @@ GameObject:
   - component: {fileID: 4940203826619615981}
   - component: {fileID: 1118417787343196488}
   - component: {fileID: 6749669505915064433}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: MINA_ENT_POL
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -508,6 +545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OBJ_HP: {fileID: 5009203076099432737}
+  sh_part: {fileID: 0}
   AtkBoost: 0
   MoneyBoost: 0
   HPBoost: 0
@@ -655,7 +693,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5794635170644264862}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -691,7 +729,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7541685363703030748}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -734,9 +772,10 @@ GameObject:
   - component: {fileID: 7792386357238504468}
   - component: {fileID: -4595143114801083187}
   - component: {fileID: 6834498890208775566}
-  m_Layer: 3
+  - component: {fileID: 7436044378901773076}
+  m_Layer: 0
   m_Name: mina_POL
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -750,7 +789,7 @@ RectTransform:
   m_GameObject: {fileID: 8953833068891432271}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children:
   - {fileID: 7077394882245533601}
   - {fileID: 6502084114970968274}
@@ -839,10 +878,10 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -877,6 +916,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56fc1a327c3b5a24cba7790df5e82a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aa: {fileID: 6675906795327012500}
+  boomer: {fileID: 6834498890208775566}
 --- !u!82 &6834498890208775566
 AudioSource:
   m_ObjectHideFlags: 0
@@ -887,7 +928,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f496bf90dba0d4b4cbf90bd1e9048f75, type: 3}
+  m_audioClip: {fileID: 8300000, guid: fa4ab2295b50b0a4a96a915b7d577db7, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -973,3 +1014,54 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!212 &7436044378901773076
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8953833068891432271}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.16, y: 0.16}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0

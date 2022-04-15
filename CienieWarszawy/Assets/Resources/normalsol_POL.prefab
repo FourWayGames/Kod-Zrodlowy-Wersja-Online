@@ -315,9 +315,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 4670189440081965354}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 9
+  m_MaxValue: 20
   m_WholeNumbers: 0
-  m_Value: 9
+  m_Value: 20
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -815,7 +815,7 @@ RectTransform:
   m_GameObject: {fileID: 8162715070191731058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children:
   - {fileID: 8012564004755176348}
   - {fileID: 6285238007476053231}
@@ -926,7 +926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44512008474170144a8a7ea9a15cf3a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 9
+  Health: 20
   FullHealth: 0
   HP_BAR: {fileID: 6079453077996809281}
   GO: {fileID: 0}

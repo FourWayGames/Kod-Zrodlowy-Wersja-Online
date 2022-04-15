@@ -7,7 +7,7 @@ public class BUTTON_STORAGE : MonoBehaviour
 {
     public GameObject DZW, GRAJ, AUTO, MainMenu, HST, SidePanelPH, SidePanelWP, SidePanelWM, DefaultInfHis, ACT, MDT, HHT, HLRT, SplashScreen, OAT, OGT, BGWT, HVT, GPT, PPT, WPWT, PKT, BPT, ObGT, PWT;
     public AudioSource D, sdt;
-    public static bool PopupShowed;
+    public static bool PopupShowed, UnlockAC, UnlockMD, UnlockHH, UnlockHLR, UnlockOA, UnlockOG, UnlockBGW, UnlockHV, UnlockGP, UnlockPP, UnlockWPW, UnlockPK, UnlockBP, UnlockObG, UnlockPW;
     private bool SwitchTab;
     public string PressedButton;
     public Button DzwB, GrajB, AutoB, Dzw2B, Graj2B, Auto2B, HisB, His2B, PosH, WaPoj, WaMi, AC, MD, HH, HLR, OA, OG, BGW, HV, GP, PP, WPW, PK, BP, ObG, PW;

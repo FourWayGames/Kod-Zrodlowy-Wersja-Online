@@ -31,10 +31,10 @@ private AudioSource GunSounds;
        if(gameObject.transform.parent.name == "spawner"){
          target = WP.points[0];
         }
-        if((gameObject.transform.parent.name == "spawner (1)") || (gameObject.transform.parent.name == "Tankspawner (1)") ){
+        if((gameObject.transform.parent.name == "spawner (1)")){
           target = WP2.points[0];
         }
-        if((gameObject.transform.parent.name == "spawner (2)") || (gameObject.transform.parent.name == "Tankspawner (2)") ){
+        if((gameObject.transform.parent.name == "spawner (2)")){
           target = WP3.points[0];
         }
         if(target == null){
@@ -52,6 +52,15 @@ private AudioSource GunSounds;
         case "GER_NORMALSOL":
    hitColliders = Physics2D.OverlapCircleAll(gameObject.transform.position, 1.13f); 
   break;
+  case "GER_SZTURMSOL":
+   hitColliders = Physics2D.OverlapCircleAll(gameObject.transform.position, 1.5f); 
+  break;
+  case "GER_SNIPERSOL":
+   hitColliders = Physics2D.OverlapCircleAll(gameObject.transform.position, 2f); 
+  break;
+  case "GER_TANKSOL":
+   hitColliders = Physics2D.OverlapCircleAll(gameObject.transform.position, 1.35f); 
+  break;
           case "PISTOLSOL_POL":
           hitColliders = Physics2D.OverlapCircleAll(gameObject.transform.position, 1.13f); 
           break;
@@ -59,7 +68,7 @@ private AudioSource GunSounds;
           hitColliders = Physics2D.OverlapCircleAll(gameObject.transform.position, 1.5f); 
           break;
           case "SNIPERSOL_POL":
-          hitColliders = Physics2D.OverlapCircleAll(gameObject.transform.position, 2f); 
+          hitColliders = Physics2D.OverlapCircleAll(gameObject.transform.position, 2.5f); 
           break;
           case "CZOLG_ENT_POL":
           hitColliders = Physics2D.OverlapCircleAll(gameObject.transform.position, 1.35f); 
@@ -117,7 +126,7 @@ private void OnDrawGizmos() { //do testów zasięgu
    Gizmos.DrawWireSphere(gameObject.transform.position, 1.5f);
   break;
   case "SNIPERSOL_POL":
-   Gizmos.DrawWireSphere(gameObject.transform.position, 2f);
+   Gizmos.DrawWireSphere(gameObject.transform.position, 2.5f);
   break;
   case "CZOLG_ENT_POL":
    Gizmos.DrawWireSphere(gameObject.transform.position, 1.35f);

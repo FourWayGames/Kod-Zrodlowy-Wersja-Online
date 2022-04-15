@@ -20,7 +20,8 @@ public class ManagerForSecondProject : MonoBehaviour
     public Button BackToMenu_YES, MENU_UST, BACK_TO_ESC, Lost_BackToMenu, Lost_TryAgain, Won_BackToMenu, Won_TryAgain, Won_NextLevel;
     public Tile[] TileSet;
     private int enemyCounter, WavesComplete, PlayMusic;
-    public int EnemyPerWave, WavesToComplete;
+    public int EnemyToKill, WavesToComplete;
+    public GameObject SoundOfTalk;
     public static bool MB_Ex, CanSpawn, INTRO, TUTORIAL, DM, DP, Ending_Sequence, BlockForCutscene, Block;
         public Grid grid;
         public static AudioSource SoundTrack;
@@ -28,7 +29,8 @@ public class ManagerForSecondProject : MonoBehaviour
         public AudioSource Click;
         public static float SpawnTime;
         public TMP_Text Version;
-        private Scene scene;
+        private bool ehh;
+        public static Scene scene;
          private Vector3Int previousMousePos = new Vector3Int();
               private System.Action OdegrajRaz { get; set; } = null;
          GraphicRaycaster m_Raycaster;
@@ -37,7 +39,12 @@ public class ManagerForSecondProject : MonoBehaviour
 
     void Start()
     {
-        Version.text = "Beta 0.9.3";
+       ShopMenu.NormalSoldier = false;
+       ShopMenu.SztormSoldier = false;
+       ShopMenu.SnajperSoldier = false;
+       ShopMenu.CzolgEntity = false;           //kolejny easy fix
+       ShopMenu.MinaEntity = false; 
+        Version.text = ""; //zostawić puste na release
         SCORE = 200;
         SoundTrack = GetComponent<AudioSource>();
         Enemy_Defeated = 0;
@@ -65,58 +72,59 @@ public class ManagerForSecondProject : MonoBehaviour
         MECH = 0;
        
         SpawnTime = 5f;
-             //TODO: Zmienić to na Switch'e
+             
         }else if(scene.name == "Level_1"){
-            AI_CONTROLLER.Liczba_WP = 3;
+        
+            AI_CONTROLLER.Liczba_WP = 2;
             enemyCounter = 0;
             DIALOG_MANAGER.NR_DIALOGU = 47;
-            RZ = 45;
-            AMM = 45;
+            RZ = 60;
+            AMM = 60;
             MECH = 0;
            
             SpawnTime = 5f;
         }else if(scene.name == "Level_2"){
-            AI_CONTROLLER.Liczba_WP = 6;
+            AI_CONTROLLER.Liczba_WP = 5;
             AI_CONTROLLER.Liczba_WP2 = 4;
             enemyCounter = 0;
             DIALOG_MANAGER.NR_DIALOGU = 56;
             RZ = 45;
-            AMM = 45;
+            AMM = 65;
             MECH = 0;
            
             SpawnTime = 5f;
         }else if(scene.name == "Level_3"){
             AI_CONTROLLER.Liczba_WP = 4;
-            AI_CONTROLLER.Liczba_WP2 = 2;
+            AI_CONTROLLER.Liczba_WP2 = 1;
             enemyCounter = 0;
             DIALOG_MANAGER.NR_DIALOGU = 77;
-            RZ = 45;
-            AMM = 45;
-            MECH = 0;
+            RZ = 65;
+            AMM = 50;
+            MECH = 100;
            
             SpawnTime = 5f;
         }else if(scene.name == "Level_4"){
-            AI_CONTROLLER.Liczba_WP = 9;
-            AI_CONTROLLER.Liczba_WP2 = 3;
+            AI_CONTROLLER.Liczba_WP = 11;
+            AI_CONTROLLER.Liczba_WP2 = 5;
             enemyCounter = 0;
             DIALOG_MANAGER.NR_DIALOGU = 97;
             RZ = 45;
-            AMM = 45;
-            MECH = 0;
+            AMM = 75;
+            MECH = 120;
             
             SpawnTime = 4.7f;
         }else if(scene.name == "Level_5"){
-            AI_CONTROLLER.Liczba_WP = 6;
+            AI_CONTROLLER.Liczba_WP = 7;
             enemyCounter = 0;
             DIALOG_MANAGER.NR_DIALOGU = 105;
-            RZ = 45;
-            AMM = 45;
-            MECH = 0;
+            RZ = 120;
+            AMM = 120;
+            MECH = 50;
             
             SpawnTime = 4.5f;
         }else if(scene.name == "Level_6"){
-            AI_CONTROLLER.Liczba_WP = 3;
-            AI_CONTROLLER.Liczba_WP2 = 1;
+            AI_CONTROLLER.Liczba_WP = 2;
+            AI_CONTROLLER.Liczba_WP2 = 4;
             enemyCounter = 0;
             DIALOG_MANAGER.NR_DIALOGU = 111;
             RZ = 50;
@@ -125,24 +133,24 @@ public class ManagerForSecondProject : MonoBehaviour
             
             SpawnTime = 4.4f;
         }else if(scene.name == "Level_7"){
-            AI_CONTROLLER.Liczba_WP = 6;
-            AI_CONTROLLER.Liczba_WP2 = 3;
+            AI_CONTROLLER.Liczba_WP = 7;
+            AI_CONTROLLER.Liczba_WP2 = 4;
             enemyCounter = 0;
             DIALOG_MANAGER.NR_DIALOGU = 117;
-            RZ = 45;
-            AMM = 45;
-            MECH = 0;
+            RZ = 65;
+            AMM = 75;
+            MECH = 130;
            
             SpawnTime = 4.3f;
         }else if(scene.name == "Level_8"){
-            AI_CONTROLLER.Liczba_WP = 2;
-            AI_CONTROLLER.Liczba_WP2 = 3;
-            AI_CONTROLLER.Liczba_WP3 = 4;
+            AI_CONTROLLER.Liczba_WP = 5;
+            AI_CONTROLLER.Liczba_WP2 = 6;
+            AI_CONTROLLER.Liczba_WP3 = 3;
             enemyCounter = 0;
             DIALOG_MANAGER.NR_DIALOGU = 123;
-            RZ = 120;
-            AMM = 120;
-            MECH = 120;
+            RZ = 150;
+            AMM = 150;
+            MECH = 150;
             
             SpawnTime = 3.9f;
         }
@@ -157,67 +165,46 @@ public class ManagerForSecondProject : MonoBehaviour
 
     void Update()
     {
-    
+          switch(scene.name){
+              case "Tutorial_Level":
+              Levels_Manager.LVL1 = true;
+              
+              break;
+              case "Level_1":
+              Levels_Manager.LVL2 = true;
+               
+              break;
+              case "Level_2":
+              Levels_Manager.LVL3 = true;
+              
+              break;
+              case "Level_3":
+              Levels_Manager.LVL4 = true;
+               
+              break;
+              case "Level_4":
+              Levels_Manager.LVL5 = true;
+               
+              break;
+              case "Level_5":
+              Levels_Manager.LVL6 = true;
+              break;
+              case "Level_6":
+              Levels_Manager.LVL7 = true;
+              break;
+              case "Level_7":
+              Levels_Manager.LVL8 = true;
+              break;
+              }
+           
         if(PlayMusic == 1){
         StartCoroutine(playAudioSequentially());
         }
         Raycaster();
 
-        if(Enemy_Defeated == EnemyPerWave){
-              switch(scene.name){
-              case "Tutorial_Level":
-              Levels_Manager.LVL1 = true;
-              Levels_Manager.LVL0_ShowScore = true;
-              PlayerPrefs.SetInt("lvl1", 1);  //PlayerPrefs nie wspiera Booleana więc standardowo: 1-true 0-false
-              PlayerPrefs.SetInt("lvl0_scr", 1);
-              break;
-              case "Level_1":
-              Levels_Manager.LVL2 = true;
-               Levels_Manager.LVL1_ShowScore = true;
-                PlayerPrefs.SetInt("lvl2", 1);
-              PlayerPrefs.SetInt("lvl1_scr", 1);
-              break;
-              case "Level_2":
-              Levels_Manager.LVL3 = true;
-               Levels_Manager.LVL2_ShowScore = true;
-                PlayerPrefs.SetInt("lvl3", 1);
-              PlayerPrefs.SetInt("lvl2_scr", 1);
-              break;
-              case "Level_3":
-              Levels_Manager.LVL4 = true;
-               Levels_Manager.LVL3_ShowScore = true;
-                PlayerPrefs.SetInt("lvl4", 1);
-              PlayerPrefs.SetInt("lvl3_scr", 1);
-              break;
-              case "Level_4":
-              Levels_Manager.LVL5 = true;
-               Levels_Manager.LVL4_ShowScore = true;
-                PlayerPrefs.SetInt("lvl5", 1);
-              PlayerPrefs.SetInt("lvl4_scr", 1);
-              break;
-              case "Level_5":
-              Levels_Manager.LVL6 = true;
-               Levels_Manager.LVL5_ShowScore = true;
-                PlayerPrefs.SetInt("lvl6", 1);
-              PlayerPrefs.SetInt("lvl5_scr", 1);
-              break;
-              case "Level_6":
-              Levels_Manager.LVL7 = true;
-               Levels_Manager.LVL6_ShowScore = true;
-                PlayerPrefs.SetInt("lvl7", 1);
-              PlayerPrefs.SetInt("lvl6_scr", 1);
-              break;
-              case "Level_7":
-              Levels_Manager.LVL8 = true;
-               Levels_Manager.LVL7_ShowScore = true;
-                PlayerPrefs.SetInt("lvl8", 1);
-              PlayerPrefs.SetInt("lvl7_scr", 1);
-              break;
-              case "Level_8":
-               Levels_Manager.LVL8_ShowScore = true;
-              PlayerPrefs.SetInt("lvl8_scr", 1);
-              break;
-              }
+        if(Enemy_Defeated == EnemyToKill){
+            SoundTrack.Stop();
+         
             if(DIALOG_MANAGER.NR_DIALOGU == 35){
                 TALK_CARD.SetActive(true);
             } if(DIALOG_MANAGER.NR_DIALOGU == 54){
@@ -256,10 +243,15 @@ public class ManagerForSecondProject : MonoBehaviour
             }
             
         }
-        if(INTRO){
-            DIALOG_MANAGER.LVL0_DIALOG1 = true;
-        }
+        
         if(TALK_CARD.activeSelf){
+            PlayMusic = 0;
+            if(!SoundOfTalk.activeSelf)
+            { 
+                SoundOfTalk.SetActive(true);
+                
+            }
+           
             if(DIALOG_MANAGER.NR_DIALOGU == 28 || DIALOG_MANAGER.NR_DIALOGU == 30){
                 BlockForCutscene = false;
             }else{
@@ -270,6 +262,9 @@ public class ManagerForSecondProject : MonoBehaviour
             
         }
         if(!TALK_CARD.activeSelf){
+            if(SoundOfTalk.activeSelf){
+                SoundOfTalk.SetActive(false);
+            }
             if(!TUTORIAL){
               PlayMusic++; 
             }
@@ -320,54 +315,7 @@ public class ManagerForSecondProject : MonoBehaviour
          
          TALK_CARD.SetActive(true);
      }
-     switch(scene.name){
-         case "Tutorial_Level":
-         
-         Levels_Manager.LVL0_Score = SCORE;
-         
-         
-         break;
-         case "Level_1":
-        
-         Levels_Manager.LVL1_Score = SCORE;
-         
-         break;
-         case "Level_2":
-         
-         Levels_Manager.LVL2_Score = SCORE;
-         
-         break;
-         case "Level_3":
-         
-         Levels_Manager.LVL3_Score = SCORE;
-         
-         break;
-         case "Level_4":
-        
-         Levels_Manager.LVL4_Score = SCORE;
-        
-         break;
-         case "Level_5":
-         
-         Levels_Manager.LVL5_Score = SCORE;
-       
-         break;
-         case "Level_6":
-        
-         Levels_Manager.LVL6_Score = SCORE;
-        
-         break;
-         case "Level_7":
-         
-         Levels_Manager.LVL7_Score = SCORE;
-        
-         break;
-         case "Level_8":
-       
-         Levels_Manager.LVL8_Score = SCORE;
-         
-         break;
-     }
+     
        //Nie mam pojęcia jak naprawić tą głupią otoczke, nie mam też czasu bo zaraz oddajemy, więc zrobimy to tak:
 if(DIALOG_MANAGER.NR_DIALOGU == 29 || DIALOG_MANAGER.NR_DIALOGU == 31 ){
   
@@ -432,6 +380,9 @@ if(DIALOG_MANAGER.NR_DIALOGU == 29 || DIALOG_MANAGER.NR_DIALOGU == 31 ){
            case "Level_7":
            SceneManager.LoadScene("Level_8");
            break;
+           case "Level_8":
+           SceneManager.LoadScene("OutroLevel");
+           break;
            
         }
        
@@ -448,8 +399,8 @@ if(DIALOG_MANAGER.NR_DIALOGU == 29 || DIALOG_MANAGER.NR_DIALOGU == 31 ){
     }
 
      IEnumerator SpawnWaves(){   
-
-                   while(WavesComplete <= WavesToComplete){
+              
+                   while(Enemy_Defeated <= EnemyToKill){
                        if(spawner.Length == 3){
                                var Random_Spawner = Random.Range(0,5);
                            
@@ -635,7 +586,7 @@ Vector3Int mousePos = GetMousePosition();
             }
              if((ShopMenu.SnajperSoldier && RZ >= 10) && AMM >= 40){
                           Hover.SetTile(mousePos, TileSet[4]);
-                           TileSet[3].transform = Matrix4x4.Scale(new Vector3(1.8f,1.8f,0));
+                           TileSet[3].transform = Matrix4x4.Scale(new Vector3(2.3f,2.3f,0));
                           HoverRange.SetTile(mousePos, TileSet[3]);
             }
             if((ShopMenu.MinaEntity && MECH >= 50)){

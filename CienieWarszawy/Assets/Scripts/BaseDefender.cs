@@ -8,6 +8,7 @@ public class BaseDefender : MonoBehaviour
     private float cooldownTimer;
     public static bool EnemySpotted;
     private AudioSource GunSounds;
+     Collider2D[] hitColliders;
     void Start()
     {
         GunSounds = GetComponent<AudioSource>();
@@ -16,11 +17,26 @@ public class BaseDefender : MonoBehaviour
     
     void Update()
     {
-        
+        hitColliders = Physics2D.OverlapCircleAll(gameObject.transform.position, 1.15f); 
+        Detector();
         if(EnemySpotted){
            
             Invoke("Attackv2", 0f);
         }
+    }
+    void Detector(){
+        foreach (var hitCollider in hitColliders)
+        {
+          if(hitCollider.transform.tag == "enemy"){
+             Invoke("Attackv2", 0f);
+          }//else{
+             // Debug.Log("Nothing in sight");
+              //EnemySpotted = false;
+          //}
+        }
+    }
+    private void OnDrawGizmos(){
+     Gizmos.DrawWireSphere(gameObject.transform.position, 1.15f);
     }
 
     void Attackv2(){

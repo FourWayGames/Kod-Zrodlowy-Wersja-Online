@@ -27,10 +27,10 @@ public AudioSource d;
     public void OnPointerEnter(PointerEventData eventData)
      {
        d.Play();
-       transform.GetChild(0).GetComponent<Text>().color = Color.white;
+       
      }
      public void OnPointerExit(PointerEventData eventData){
-       transform.GetChild(0).GetComponent<Text>().color = Color.gray;
+      
      
      }
      

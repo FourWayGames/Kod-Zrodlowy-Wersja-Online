@@ -8,8 +8,8 @@ public class ShopMenu : MonoBehaviour
     public Animator ANIM;
     public static bool ShopAble;
     public Button Pistol, Sztorm, Snajper, Mina, Czolg;
-    public GameObject Bonus_grid;
-    public static bool NormalSoldier, SztormSoldier, SnajperSoldier, MinaEntity, CzolgEntity;
+    public GameObject Bonus_grid;                                                           //////Te CanBuy'e są po to żeby gra sprawdzała czy możesz coś kupić, jak nie to przegrywasz
+    public static bool NormalSoldier, SztormSoldier, SnajperSoldier, MinaEntity, CzolgEntity, CanBuyPistol, CanBuySztorm, CanBuySniper, CanBuyMina, CanbuyCzolg;
     void Start()
     {
         Button btn = Pistol.GetComponent<Button>();
@@ -36,13 +36,41 @@ public class ShopMenu : MonoBehaviour
     
     void Update()
     {
+
+        if(ManagerForSecondProject.RZ < 15 && ManagerForSecondProject.AMM < 15){
+            CanBuyPistol = false;
+        }else{
+            CanBuyPistol = true;
+        }
+        if(ManagerForSecondProject.RZ < 30 && ManagerForSecondProject.AMM < 30){
+            CanBuySztorm = false;
+        }else{
+            CanBuySztorm = true;
+        }
+        if(ManagerForSecondProject.RZ < 10 && ManagerForSecondProject.AMM < 40){
+            CanBuySniper = false;
+        }else{
+            CanBuySniper = true;
+        }if(ManagerForSecondProject.MECH < 50){
+            CanBuyMina = false;
+        }else{
+            CanBuyMina = true;
+        }if(ManagerForSecondProject.MECH < 75 && ManagerForSecondProject.AMM < 30){
+         CanbuyCzolg = false;
+        }else{
+            CanbuyCzolg = true;
+        }
         if(!ManagerForSecondProject.INTRO){
  if(Input.GetKeyDown("e") && ShopAble == false){
             ANIM.SetBool("ShoppingTime", true);
            Bonus_grid.SetActive(true);
             ShopAble = true;
         } else if(Input.GetKeyDown("e") &&  ShopAble == true){
-            NormalSoldier = false;
+            SztormSoldier = false;
+        SnajperSoldier = false;
+        MinaEntity = false;
+        CzolgEntity = false;
+        NormalSoldier = false;
             ANIM.SetBool("ShoppingTime", false);
             Bonus_grid.SetActive(false);
            ShopAble = false;

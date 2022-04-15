@@ -39,7 +39,7 @@ public class Levels_Manager : MonoBehaviour
     
     void Update()
     {
-        if(LVL0_Score >= LVL0_HighScore){
+        /*if(LVL0_Score >= LVL0_HighScore){
             LVL0_HighScore = LVL0_Score;
         }
         if(LVL1_Score >= LVL1_HighScore){
@@ -65,14 +65,14 @@ public class Levels_Manager : MonoBehaviour
         }
         if(LVL8_Score >= LVL8_HighScore){
             LVL8_HighScore = LVL8_Score;
-        }
-        //DEVELOPER STUFF - do wykomentowania na release
-        if(Input.GetKeyDown("1")){
+        }*/
+        
+        /*if(Input.GetKeyDown("1")){ //do debugowania, wykomentować na release....
             
-            PlayerPrefs.SetInt("lvl1", 1);
+            LVL1 = true;
         }
         if(Input.GetKeyDown("2")){
-            PlayerPrefs.SetInt("lvl2", 1);
+            LVL2 = true;
         }
         if(Input.GetKeyDown("3")){
             PlayerPrefs.SetInt("lvl3", 1);
@@ -90,39 +90,39 @@ public class Levels_Manager : MonoBehaviour
         }if(Input.GetKeyDown("8")){
             PlayerPrefs.SetInt("lvl8", 1);
         }if(Input.GetKeyDown("z")){
-            PlayerPrefs.DeleteAll();
-        }
+            LVL8 = true;
+        }*/
         
     
-        if(PlayerPrefs.GetInt("lvl1") == 1){
+        if(LVL1 == true){
             
             Wybierz_Level[1].transform.GetChild(2).gameObject.SetActive(false);
             Wybierz_Level[1].interactable = true;
         }
-        if(PlayerPrefs.GetInt("lvl2") == 1){
+        if(LVL2 == true){
             Wybierz_Level[2].transform.GetChild(2).gameObject.SetActive(false);
             Wybierz_Level[2].interactable = true;
         }
-         if(PlayerPrefs.GetInt("lvl3") == 1){
+         if(LVL3 == true){
             Wybierz_Level[3].transform.GetChild(2).gameObject.SetActive(false);
             Wybierz_Level[3].interactable = true;
         }
-         if(PlayerPrefs.GetInt("lvl4") == 1){
+         if(LVL4 == true){
             Wybierz_Level[4].transform.GetChild(2).gameObject.SetActive(false);
             Wybierz_Level[4].interactable = true;
         }
-         if(PlayerPrefs.GetInt("lvl5") == 1){
+         if(LVL5 == true){
             Wybierz_Level[5].transform.GetChild(2).gameObject.SetActive(false);
             Wybierz_Level[5].interactable = true;
         }
-         if(PlayerPrefs.GetInt("lvl6") == 1){
+         if(LVL6 == true){
             Wybierz_Level[6].transform.GetChild(2).gameObject.SetActive(false);
             Wybierz_Level[6].interactable = true;
         }
-         if(PlayerPrefs.GetInt("lvl7") == 1){
+         if(LVL7 == true){
             Wybierz_Level[7].transform.GetChild(2).gameObject.SetActive(false);
             Wybierz_Level[7].interactable = true;
-        }if(PlayerPrefs.GetInt("lvl8") == 1){
+        }if(LVL8 == true){
             Wybierz_Level[8].transform.GetChild(2).gameObject.SetActive(false);
             Wybierz_Level[8].interactable = true;
         }
@@ -134,33 +134,34 @@ public class Levels_Manager : MonoBehaviour
                           Zacznij_Gre.transform.GetChild(0).GetComponent<Text>().text = "ZACZNIJ GRE";
         }
 
-        if(PlayerPrefs.GetInt("lvl0_scr") == 1){
-          Wybierz_Level[0].transform.parent.GetChild(1).gameObject.SetActive(true);
+       /* if(LVL0_ShowScore == true){
+            
+          Wybierz_Level[0].transform.GetChild(2).gameObject.SetActive(true);
         }
-        if(PlayerPrefs.GetInt("lvl1") == 1){
-            Wybierz_Level[1].transform.parent.GetChild(2).gameObject.SetActive(true);
+        if(LVL1_ShowScore == true){
+            Wybierz_Level[1].transform.GetChild(3).gameObject.SetActive(true);
         }
-        if(PlayerPrefs.GetInt("lvl2") == 1){
-            Wybierz_Level[2].transform.parent.GetChild(2).gameObject.SetActive(true);
+        if(LVL2_ShowScore == true){
+            Wybierz_Level[2].transform.GetChild(3).gameObject.SetActive(true);
         }
-        if(PlayerPrefs.GetInt("lvl3") == 1){
-            Wybierz_Level[3].transform.parent.GetChild(2).gameObject.SetActive(true);
+        if(LVL3_ShowScore == true){
+            Wybierz_Level[3].transform.GetChild(3).gameObject.SetActive(true);
         }
-        if(PlayerPrefs.GetInt("lvl4") == 1){
-            Wybierz_Level[4].transform.parent.GetChild(2).gameObject.SetActive(true);
+        if(LVL4_ShowScore == true){
+            Wybierz_Level[4].transform.GetChild(3).gameObject.SetActive(true);
         }
-        if(PlayerPrefs.GetInt("lvl5") == 1){
-            Wybierz_Level[5].transform.parent.GetChild(2).gameObject.SetActive(true);
+        if(LVL5_ShowScore == true){
+            Wybierz_Level[5].transform.GetChild(3).gameObject.SetActive(true);
         }
-        if(PlayerPrefs.GetInt("lvl6") == 1){
-            Wybierz_Level[6].transform.parent.GetChild(2).gameObject.SetActive(true);
+        if(LVL6_ShowScore == true){
+            Wybierz_Level[6].transform.GetChild(3).gameObject.SetActive(true);
         }
-        if(PlayerPrefs.GetInt("lvl7") == 1){
-            Wybierz_Level[7].transform.parent.GetChild(2).gameObject.SetActive(true);
+        if(LVL7_ShowScore == true){
+            Wybierz_Level[7].transform.GetChild(3).gameObject.SetActive(true);
         }
-        if(PlayerPrefs.GetInt("lvl8") == 1){
-            Wybierz_Level[8].transform.parent.GetChild(2).gameObject.SetActive(true);
-        }
+        if(LVL8_ShowScore == true){
+            Wybierz_Level[8].transform.GetChild(3).gameObject.SetActive(true);
+        }*/
     }
 
     void PlayIt(){
@@ -187,7 +188,7 @@ public class Levels_Manager : MonoBehaviour
             Nazwa_Poziomu.text = "Tutorial - Operacja Victoria";
         Lokacja_i_Czas_Poziomu.text = "Lokacja: Hotel Victoria, Warszawa 1944";
         Opis_Poziomu.text = "Nazywasz się Kamil, od pewnego czasu krążyły plotki jakoby Niemcy mieli najechać na Hotel Victorie, a los chciał, że akurat znalazłeś się w środku wydarzeń jako dowódca, musisz odepchnąć Niemców za wszelką cene!";
-        Level_To_Play = "Tutorial_Level";
+        Level_To_Play = "IntroScene";
         Wybierz_Level[0].transform.GetChild(0).GetComponent<Text>().text = "ODZNACZ";
         } else{
             Wybierz_Level[0].GetComponent<Image>().sprite = Deselected;
@@ -205,7 +206,7 @@ public class Levels_Manager : MonoBehaviour
 
     void LvL1(){
         click.Play();
-          for(int i = 0; i < 8; i++){
+          for(int i = 0; i < 9; i++){
           if(i == 1) continue;
            Wybierz_Level[i].GetComponent<Image>().sprite = Deselected;
            Wybierz_Level[i].transform.GetChild(0).GetComponent<Text>().text = "WYBIERZ";
@@ -236,7 +237,7 @@ public class Levels_Manager : MonoBehaviour
 
     void LvL2(){
         click.Play();
-          for(int i = 0; i < 8; i++){
+          for(int i = 0; i < 9; i++){
           if(i == 2) continue;
           Wybierz_Level[i].GetComponent<Image>().sprite = Deselected;
            Wybierz_Level[i].transform.GetChild(0).GetComponent<Text>().text = "WYBIERZ";
@@ -266,7 +267,7 @@ public class Levels_Manager : MonoBehaviour
 
     void LvL3(){
         click.Play();
-         for(int i = 0; i < 8; i++){
+         for(int i = 0; i < 9; i++){
           if(i == 3) continue;
           Wybierz_Level[i].GetComponent<Image>().sprite = Deselected;
            Wybierz_Level[i].transform.GetChild(0).GetComponent<Text>().text = "WYBIERZ";
@@ -279,7 +280,7 @@ public class Levels_Manager : MonoBehaviour
             Lokacja_i_Czas_Poziomu.enabled = true;
             Nazwa_Poziomu.text = "Obrona Poczty";
         Lokacja_i_Czas_Poziomu.text = "Lokacja: Poczta Polska";
-        Opis_Poziomu.text = "Gdy odbierałeś spokojnie poczte w placówce, pech chciał że znów znalazłeś się w środku wydarzeń. Twoim zadaniem jest obrona poczty ramie w ramie z Henrykiem Leliwa-Roycewiczem, i jego oddziałem 'Godziny W'";
+        Opis_Poziomu.text = "Henryk Leliwa-Roycewicz złożył ci propozycje nie do odrzucenia, ma to związek ze wzmocnionym atakiem Niemców na Warszawe";
         Level_To_Play = "Level_3";
         Wybierz_Level[3].transform.GetChild(0).GetComponent<Text>().text = "ODZNACZ";
         } else{
@@ -295,7 +296,7 @@ public class Levels_Manager : MonoBehaviour
     }
     void LvL4(){
         click.Play();
-           for(int i = 0; i < 8; i++){
+           for(int i = 0; i < 9; i++){
           if(i == 4) continue;
           Wybierz_Level[i].GetComponent<Image>().sprite = Deselected;
            Wybierz_Level[i].transform.GetChild(0).GetComponent<Text>().text = "WYBIERZ";
@@ -308,7 +309,7 @@ public class Levels_Manager : MonoBehaviour
             Lokacja_i_Czas_Poziomu.enabled = true;
             Nazwa_Poziomu.text = "Papiery bardzo wartościowe";
         Lokacja_i_Czas_Poziomu.text = "Lokacja: Polska Wytwórnia Papierów Wartościowych";
-        Opis_Poziomu.text = "Po uporaniu się z Niemcami w Pocztcie Polskiej, doszły cię słuchy jakoby Niemcy planowali najazd na Wytwórnie papierów wartościowych,";
+        Opis_Poziomu.text = "Po uporaniu się z Niemcami w Potczcie Polskiej, doszły cię słuchy jakoby Niemcy planowali najazd na Wytwórnie papierów wartościowych,";
         Level_To_Play = "Level_4";
         Wybierz_Level[4].transform.GetChild(0).GetComponent<Text>().text = "ODZNACZ";
         } else{
@@ -325,7 +326,7 @@ public class Levels_Manager : MonoBehaviour
 
     void LvL5(){
         click.Play();
-           for(int i = 0; i < 8; i++){
+           for(int i = 0; i < 9; i++){
           if(i == 5) continue;
           Wybierz_Level[i].GetComponent<Image>().sprite = Deselected;
            Wybierz_Level[i].transform.GetChild(0).GetComponent<Text>().text = "WYBIERZ";
@@ -338,7 +339,7 @@ public class Levels_Manager : MonoBehaviour
             Lokacja_i_Czas_Poziomu.enabled = true;
             Nazwa_Poziomu.text = "Pałac Krasińskich";
         Lokacja_i_Czas_Poziomu.text = "Lokacja: Pałac Krasińskich";
-        Opis_Poziomu.text = "Celem tego poziomu jest obrona Pałacu z małą ilością wojska, czy będzie dla ciebie to problem? A może udowodnisz że jesteś wartościowym dowódcą i umiesz pomóc innym ludziom z batalionu Parasol";
+        Opis_Poziomu.text = "Znów nadszedł czas na pomoc, tym razem przy Pałacu Krasińskich, gdzie musisz odeprzeć nadchodzących Niemców!";
         Level_To_Play = "Level_5";
         Wybierz_Level[5].transform.GetChild(0).GetComponent<Text>().text = "ODZNACZ";
         } else{
@@ -355,7 +356,7 @@ public class Levels_Manager : MonoBehaviour
 
     void LvL6(){
         click.Play();
-           for(int i = 0; i < 8; i++){
+           for(int i = 0; i < 9; i++){
           if(i == 6) continue;
           Wybierz_Level[i].GetComponent<Image>().sprite = Deselected;
            Wybierz_Level[i].transform.GetChild(0).GetComponent<Text>().text = "WYBIERZ";
@@ -368,7 +369,7 @@ public class Levels_Manager : MonoBehaviour
             Lokacja_i_Czas_Poziomu.enabled = true;
             Nazwa_Poziomu.text = "Kasa oszczędności";
         Lokacja_i_Czas_Poziomu.text = "Lokacja: Bank Polski";
-        Opis_Poziomu.text = "Niemcy przejęli Bank Polski i tam zarządzają swoimi finansami, to jest dość mocny cios w obie strony i zadanie twojej drużyny to odzyskanie i obrona gmachu Banku Polskiego. Jest to miejsce mocno strategiczne dlatego twoim planem jest przeniesienie tam swojej siedziby z hotelu Victoria.";
+        Opis_Poziomu.text = "Niemcy zamierzają przejąć Bank Polski, nie możesz im na to pozwolić!";
         Level_To_Play = "Level_6";
         Wybierz_Level[6].transform.GetChild(0).GetComponent<Text>().text = "ODZNACZ";
         } else{
@@ -385,7 +386,7 @@ public class Levels_Manager : MonoBehaviour
 
     void LvL7(){
         click.Play();
-          for(int i = 0; i < 8; i++){
+          for(int i = 0; i < 9; i++){
           if(i == 7) continue;
                    Debug.Log(i);
 
@@ -400,7 +401,7 @@ public class Levels_Manager : MonoBehaviour
             Lokacja_i_Czas_Poziomu.enabled = true;
             Nazwa_Poziomu.text = "Zagłada i obóz";
         Lokacja_i_Czas_Poziomu.text = "Lokacja: Obóz Gęsiówka";
-        Opis_Poziomu.text = "W tym miejscu pomagasz harcerskiemu batalionowi Armii Krajowej „Zośka” w odbiciu obozu i uratowaniu jeńców wojennych. Czy będzie to proste zadanie? Przekonaj się sam!";
+        Opis_Poziomu.text = "Batalion 'Zośka' Odbili właśnie gęsiówke i poprosili cię o pomoc w odparciu pozostałych Niemców! Czujesz że nie będzie to proste zadanie...";
         Level_To_Play = "Level_7";
         Wybierz_Level[7].transform.GetChild(0).GetComponent<Text>().text = "ODZNACZ";
         } else{
@@ -417,7 +418,7 @@ public class Levels_Manager : MonoBehaviour
 
     void LvL8(){
        click.Play();
-           for(int i = 0; i < 8; i++){
+           for(int i = 0; i <= 9; i++){
           if(i == 8) continue;
           Wybierz_Level[i].GetComponent<Image>().sprite = Deselected;
            Wybierz_Level[i].transform.GetChild(0).GetComponent<Text>().text = "WYBIERZ";
@@ -428,10 +429,10 @@ public class Levels_Manager : MonoBehaviour
             przerywacz.enabled = true;
             Opis_Poziomu.enabled = true;
             Lokacja_i_Czas_Poziomu.enabled = true;
-            Nazwa_Poziomu.text = "Kasa oszczędności";
-        Lokacja_i_Czas_Poziomu.text = "Lokacja: Bank Polski";
-        Opis_Poziomu.text = "Niemcy przejęli Bank Polski i tam zarządzają swoimi finansami, to jest dość mocny cios w obie strony i zadanie twojej drużyny to odzyskanie i obrona gmachu Banku Polskiego. Jest to miejsce mocno strategiczne dlatego twoim planem jest przeniesienie tam swojej siedziby z hotelu Victoria.";
-        Level_To_Play = "Level_6";
+            Nazwa_Poziomu.text = "Nauka to klucz";
+        Lokacja_i_Czas_Poziomu.text = "Lokacja: Politechnika Warszawska";
+        Opis_Poziomu.text = "Twój batalion zyskał tak dużą sławe, że niektórzy zaczęli prosić cie o pomoc, uczniowie Politechniki Warszawskiej pokładają w tobie całą nadzieje! czy zdołasz ich obronić?.";
+        Level_To_Play = "Level_8";
         Wybierz_Level[8].transform.GetChild(0).GetComponent<Text>().text = "ODZNACZ";
         } else{
             Wybierz_Level[8].GetComponent<Image>().sprite = Deselected;
